@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <img src="https://github.com/Munhak-Zip/Moviezip_Back/assets/110006845/e8d64401-4e07-45d5-abd1-923abf6a17d4" alt="화면 캡처 2024-07-08 231353">
 </p>
@@ -47,3 +48,7 @@
     </tr>
   </table>
 </div>
+=======
+# MovieZip_BE
+소프트웨어 경진대회 - 백엔드
+>>>>>>> 0a56d71d95f4277288df6acdb9144eac1a1868ec
