@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -60,9 +61,10 @@ public class UserServiceImpl implements UserService {
     }
 
 //비밀번호 변경
+    @Transactional
     @Override
-    public void updateUserPassword(String userId, String newPassword) {
-        mybatisUserDao.updateUserPassword(userId, newPassword);
+    public void updateUserPassword(Long id, String newPassword) {
+        mybatisUserDao.updateUserPassword(id, newPassword);
     }
 
     @Override

@@ -12,10 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.Map;
 
 @RestController
@@ -159,7 +161,6 @@ public class UserController {
     }
 
     //입력한 id가 db에 있는지? true or false 넘겨주기
-
     @PostMapping("/checkExistsId")
     public ResponseEntity<Boolean> findPwStepOne(@RequestBody Map<String, String> payload) {
         String userId = payload.get("userId");
@@ -168,14 +169,17 @@ public class UserController {
         return ResponseEntity.ok(userExists);
     }
 
+    //비번 수정
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/changePassword")
     public void changePassword(@RequestBody Map<String, String> payload) {
-        String userId = payload.get("userId");
+        Long id = Long.valueOf(payload.get("userId"));
+        System.out.println("사용자 아이디:!!!! " + id);
         String newPw = payload.get("newPassword");
         String newPassword = passwordEncoder.encode(newPw);
-        System.out.println("사용자 아이디: " + userId);
+        System.out.println("사용자 아이디: " + id);
         System.out.println("새 비밀번호: " + newPassword);
-        userService.updateUserPassword(userId,newPassword);
+        userService.updateUserPassword(id,newPassword);
     }
 
     @PostMapping("/checkExistInterestById")
@@ -184,8 +188,6 @@ public class UserController {
         System.out.println("사용자 아이디: " + id);
         return userService.findInterest(id);
     }
-
-
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/mypage/user")
@@ -196,6 +198,7 @@ public class UserController {
         return u;
     }
 
+    //나의 관심사 체크
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/mypage/user/interest")
     public Interest findMypageInterest(@RequestParam long userId) {
@@ -203,5 +206,29 @@ public class UserController {
         Interest i = userService.findInterest2(userId);
         System.out.println("사용자"+ i.getGenre());
         return i;
+    }
+
+    //비번 확인
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/mypage/checkUserPass")
+    public Boolean checkUserPassword(@RequestParam long userId, @RequestParam String password) {
+        User u = userService.getUserById2(userId);
+        System.out.println(userId);
+        System.out.println(u.getNickname());
+
+        // DB에 저장된 암호화된 비밀번호 가져오기
+        String encryptedPassword = u.getPassword();
+
+        // BCryptPasswordEncoder를 이용하여 비밀번호를 비교
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        // 입력된 비밀번호를 암호화된 비밀번호와 비교
+        if (passwordEncoder.matches(password, encryptedPassword)) {
+            System.out.println("비밀번호가 일치합니다.");
+            return true;
+        } else {
+            System.out.println("비밀번호가 일치하지 않습니다.");
+            return false;
+        }
     }
 }
