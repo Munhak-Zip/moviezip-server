@@ -13,8 +13,9 @@
     </select>
 
     <update id="updateUserPassword">
-        UPDATE USER_TABLE SET PASSWORD = #{newPassword} WHERE USERID = #{userId}
+        UPDATE USER_TABLE SET PASSWORD = #{newPassword} WHERE ID = #{id}
     </update>
+
     <select id="findUser" resultType="User">
         SELECT * FROM USER_TABLE WHERE HINT = #{hint} AND NICKNAME = #{nickname}
     </select>
