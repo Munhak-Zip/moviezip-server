@@ -24,8 +24,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         this.mybatisUserDao = mybatisUserDao;
     }
 
+    //AuthenticationProvider에서 아이디를 조회하였으면, UserDetailsService로부터 아이디를 기반으로 데이터를 조회해야 한다.
     @Override
-    public UserDetails  loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         System.out.println("username:"+ username);
         User user = mybatisUserDao.findByUserId(username);
