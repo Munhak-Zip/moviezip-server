@@ -57,8 +57,8 @@ public class MybatisUserDao implements UserDao {
     }
 
     @Override
-    public void addInterest(Long id, String genre) throws DataAccessException {
-         userMapper.addInterest(id, genre);
+    public void addInterest(Long userId, String genre) throws DataAccessException {
+         userMapper.addInterest(userId, genre);
     }
 
 //    @Override
