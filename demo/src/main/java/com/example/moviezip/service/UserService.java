@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface UserService {
-    public void updateUserPassword(String userId, String newPassword);
+    public void updateUserPassword(Long id, String newPassword);
     public void updateNickname(Long id, String newNickname);
 
     public void deleteUser(Long id);

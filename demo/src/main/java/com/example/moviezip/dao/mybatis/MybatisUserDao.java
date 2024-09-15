@@ -21,9 +21,9 @@ public class MybatisUserDao implements UserDao {
 
     //비밀번호 변경
     @Override
-    public void updateUserPassword(String userId, String newPassword) throws DataAccessException {
-        System.out.println("MybatisUserDao - updatePassword - id: " + userId + ", newPassword: " + newPassword);
-        userMapper.updateUserPassword(userId, newPassword);
+    public void updateUserPassword(Long id, String newPassword) throws DataAccessException {
+        System.out.println("MybatisUserDao - updatePassword - id: " + id + ", newPassword: " + newPassword);
+        userMapper.updateUserPassword(id, newPassword);
     }
 
     @Override
