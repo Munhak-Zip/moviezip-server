@@ -29,7 +29,7 @@ public interface UserMapper {
     //사용자 전체 리스트 출력
     List<User> findAllUser();
 
-   void addInterest(@Param("id")Long id, @Param("genre")String genre);
+   void addInterest(@Param("userId")Long userId, @Param("genre")String genre);
 
    //해당 아이디를 가진 사용자의 취향이 있는지
     Boolean findInterest(@Param("id") Long id);

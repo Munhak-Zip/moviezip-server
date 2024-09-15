@@ -22,7 +22,7 @@ public interface UserDao {
 
     public List<User> findAllUser() throws DataAccessException;
 
-   public void addInterest(Long id, String genre) throws DataAccessException;
+   public void addInterest(Long userId, String genre) throws DataAccessException;
 //
     public Boolean findInterest(Long id) throws DataAccessException;
 

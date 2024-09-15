@@ -33,7 +33,7 @@
     <insert id="addInterest">
         INSERT INTO INTEREST (ID, GENRE)
         VALUES
-            (#{id}, #{genre})
+            (#{userId, jdbcType=BIGINT}, #{genre, jdbcType=VARCHAR})
     </insert>
     <select id="findInterest" resultType="boolean">
         SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
