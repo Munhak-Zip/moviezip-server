@@ -86,6 +86,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 }) // 로그아웃 성공 핸들러
                                 .deleteCookies("JSESSIONID","remember-me") // 로그아웃 후 삭제할 쿠키 지정
                 )
+
                 .csrf(csrf ->
                         csrf.disable() // CSRF 보호 비활성화
                 );

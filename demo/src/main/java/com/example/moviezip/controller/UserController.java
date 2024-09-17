@@ -93,7 +93,7 @@ public class UserController {
         }
     }
 
-    //입력한 id가 db에 있는지? true or false 넘겨주기
+    //입력한 id가 db에 있는지? true or false 넘겨주기 ->말고 사용자 id받아와야할듯 (기본키)
     @PostMapping("/checkExistsId")
     public ResponseEntity<Boolean> findPwStepOne(@RequestBody Map<String, String> payload) {
         String userId = payload.get("userId");

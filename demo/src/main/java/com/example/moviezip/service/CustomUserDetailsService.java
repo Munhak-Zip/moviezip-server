@@ -32,7 +32,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = mybatisUserDao.findByUserId(username);
         System.out.println(user);
 
-        if (user != null) {
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with username: " + username);
+        }else if (user != null) {
             System.out.println("로그인한 사용자 " + user.getUserId() + user.getPassword());
             return new CustomUserDetails(user);
         } else{
