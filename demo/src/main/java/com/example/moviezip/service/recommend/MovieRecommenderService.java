@@ -71,6 +71,21 @@ public class MovieRecommenderService {
                 return new Tuple2<>(tuple._1, directors);
             });
 
+            // 사용자별로 본 영화의 장르 목록 추출
+            JavaPairRDD<Integer, Set<String>> userWatchedGenres = ratings.mapToPair(rating -> {
+                int movieId = rating.product();
+                Tuple3<String, String, String> movieInfo = movieInfoMap.get(movieId);
+                String genre = movieInfo._2();  // 장르 정보 추출
+                return new Tuple2<>(rating.user(), genre);
+            }).groupByKey().mapToPair(tuple -> {
+                Set<String> genres = new HashSet<>();
+                for (String genre : tuple._2) {
+                    genres.add(genre);
+                }
+                return new Tuple2<>(tuple._1, genres);
+            });
+
+
             // 사용자별로 본 영화 목록 추출
             JavaPairRDD<Integer, Iterable<Integer>> userWatchedMovies = ratings.mapToPair(rating -> new Tuple2<>(rating.user(), rating.product())).groupByKey();
 
@@ -132,7 +147,7 @@ public class MovieRecommenderService {
                 watchedMovies.addAll((Collection<? extends Integer>) userWatchedMovies.lookup(userId).iterator().next());
             }
             Set<String> watchedDirectors = userWatchedDirectors.lookup(userId).iterator().next();
-
+            Set<String> watchedGenres = userWatchedGenres.lookup(userId).iterator().next();
             // 모든 영화 ID 목록 생성
             Set<Integer> allMovieIds = new HashSet<>(movieTitlesGenresDirectors.keys().collect());
 
@@ -143,16 +158,25 @@ public class MovieRecommenderService {
             // 사용자가 보지 않은 영화에 대해 추천 실행
             JavaRDD<Integer> notWatchedMoviesRDD = jsc.parallelize(notWatchedMovies);
             JavaRDD<Tuple2<Object, Object>> notWatchedMoviesUser = notWatchedMoviesRDD.map(movieId -> new Tuple2<>(userId, movieId));
+            // 추천 실행 시 장르와 감독 가중치 모두 반영
             JavaPairRDD<Tuple2<Integer, Integer>, Double> recommendations = JavaPairRDD.fromJavaRDD(
                     model.predict(JavaRDD.toRDD(notWatchedMoviesUser)).toJavaRDD().map(
                             r -> {
-                                // 사용자가 본 영화 감독과 동일한 감독의 영화에 가중치 추가
                                 Tuple3<String, String, String> movieInfo = movieInfoMap.get(r.product());
-                                double weight = watchedDirectors.contains(movieInfo._3()) ? 1.2 : 1.0; // 가중치 설정
+                                String genre = movieInfo._2();
+                                String director = movieInfo._3();
+
+                                // 장르와 감독 기반 가중치 계산
+                                double weight = 1.0;
+                                if (watchedGenres.contains(genre)) {
+                                    weight *= 1.2; // 사용자가 본 장르일 경우 가중치 부여
+                                }
+                                if (watchedDirectors.contains(director)) {
+                                    weight *= 1.2; // 감독도 동일할 경우 추가 가중치 부여
+                                }
                                 return new Tuple2<>(new Tuple2<>(r.user(), r.product()), r.rating() * weight);
                             }
                     ));
-
 
             // 추천 영화 결과를 담을 리스트 생성
             List<String> recommendationResults = new ArrayList<>();
