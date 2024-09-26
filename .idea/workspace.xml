@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] workspace" />
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] add screenDate field to ScreenTime entity">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,42 +46,43 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.LoginTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LoginTest.testLogin.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ReservationTest.testReservation.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.WishTest.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.MoviezipApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/1&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;fe01ce2a7fbac8fafaed7c982a04e229&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.LoginTest.executor": "Run",
+    "JUnit.LoginTest.testLogin.executor": "Run",
+    "JUnit.ReservationTest.executor": "Run",
+    "JUnit.ReservationTest.testReservation.executor": "Run",
+    "JUnit.WishTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.MoviezipApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
+    "last_opened_file_path": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.applicationServers",
+    "spring.configuration.checksum": "fe01ce2a7fbac8fafaed7c982a04e229",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;oracle&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "oracle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\4th_grade\1st_semester\MunhakZip\Moviezip_Back\demo\src\main\resources\com\example\moviezip\dao\mybatis\mapper" />
@@ -91,33 +95,64 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.MoviezipApplication">
-    <configuration name="MovieTest.RecentMoviesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.moviezip.domain.*" />
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.domain.MovieTest" />
-      <option name="METHOD_NAME" value="RecentMoviesTest" />
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.AuthControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthControllerTest.testLoginWithInvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.AuthControllerTest" />
+      <option name="METHOD_NAME" value="testLoginWithInvalidCredentials" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieTest.getMoviedetail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AuthControllerTest.testLoginWithValidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.moviezip.domain.*" />
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.domain.MovieTest" />
-      <option name="METHOD_NAME" value="getMoviedetail" />
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.AuthControllerTest" />
+      <option name="METHOD_NAME" value="testLoginWithValidCredentials" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthControllerTest.testPasswordEncryptionAndValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.AuthControllerTest" />
+      <option name="METHOD_NAME" value="testPasswordEncryptionAndValidation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,38 +169,6 @@
       <option name="PACKAGE_NAME" value="com.example.moviezip.domain" />
       <option name="MAIN_CLASS_NAME" value="com.example.moviezip.domain.ReservationTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReservationTest.testReservation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.domain.ReservationTest" />
-      <option name="METHOD_NAME" value="testReservation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WishTest.testSaveWishMovie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.WishTest" />
-      <option name="METHOD_NAME" value="testSaveWishMovie" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -203,20 +206,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.AuthControllerTest" />
+      <item itemvalue="JUnit.AuthControllerTest.testLoginWithInvalidCredentials" />
+      <item itemvalue="JUnit.AuthControllerTest.testLoginWithValidCredentials" />
+      <item itemvalue="JUnit.AuthControllerTest.testPasswordEncryptionAndValidation" />
       <item itemvalue="JUnit.ReservationTest" />
-      <item itemvalue="JUnit.MovieTest.getMoviedetail" />
-      <item itemvalue="JUnit.MovieTest.RecentMoviesTest" />
-      <item itemvalue="JUnit.ReservationTest.testReservation" />
-      <item itemvalue="JUnit.WishTest.testSaveWishMovie" />
       <item itemvalue="Spring Boot.MoviezipApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthControllerTest.testPasswordEncryptionAndValidation" />
+        <item itemvalue="JUnit.AuthControllerTest.testLoginWithValidCredentials" />
+        <item itemvalue="JUnit.AuthControllerTest" />
+        <item itemvalue="JUnit.AuthControllerTest.testLoginWithInvalidCredentials" />
         <item itemvalue="JUnit.ReservationTest" />
-        <item itemvalue="JUnit.MovieTest.getMoviedetail" />
-        <item itemvalue="JUnit.MovieTest.RecentMoviesTest" />
-        <item itemvalue="JUnit.WishTest.testSaveWishMovie" />
-        <item itemvalue="JUnit.ReservationTest.testReservation" />
       </list>
     </recent_temporary>
   </component>
@@ -254,6 +257,22 @@
       <workItem from="1726326588983" duration="494000" />
       <workItem from="1726409219078" duration="2321000" />
       <workItem from="1727342833967" duration="2104000" />
+    </task>
+    <task id="LOCAL-00048" summary="[fix] : update workspace">
+      <option name="closed" value="true" />
+      <created>1716389053235</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389053235</updated>
+    </task>
+    <task id="LOCAL-00049" summary="[add] : Spring security,JPA 의존성 추가">
+      <option name="closed" value="true" />
+      <created>1716804056431</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1716804056431</updated>
     </task>
     <task id="LOCAL-00050" summary="[fix] : pom.xml 수정 #27">
       <option name="closed" value="true" />
@@ -631,23 +650,7 @@
       <option name="project" value="LOCAL" />
       <updated>1726128403752</updated>
     </task>
-    <task id="LOCAL-00097" summary="[feat] merge">
-      <option name="closed" value="true" />
-      <created>1727349062838</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1727349062838</updated>
-    </task>
-    <task id="LOCAL-00098" summary="[feat] workspace">
-      <option name="closed" value="true" />
-      <created>1727353735198</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1727353735198</updated>
-    </task>
-    <option name="localTasksCounter" value="99" />
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,10 +690,14 @@
     <MESSAGE value="pull" />
     <MESSAGE value="[feat] 머지 #61" />
     <MESSAGE value="[feat] 마이페이지" />
+    <MESSAGE value="[feat] Add code description #3" />
+    <MESSAGE value="[add] Add InterestDTO #4" />
+    <MESSAGE value="[fix] Fix MybatisUserDao #4" />
+    <MESSAGE value="[fix] Fix addInterest feature #4" />
     <MESSAGE value="[feat] 마이페이지 비번 확인" />
-    <MESSAGE value="[feat] merge" />
-    <MESSAGE value="[feat] workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feat] workspace" />
+    <MESSAGE value="[add] entity 추가" />
+    <MESSAGE value="[add] add screenDate field to ScreenTime entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] add screenDate field to ScreenTime entity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
