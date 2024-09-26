@@ -104,8 +104,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addInterest(Long id, String genre) {
-        mybatisUserDao.addInterest(id, genre);
+    public void addInterest(Long userId, String genre) {
+        mybatisUserDao.addInterest(userId, genre);
 
     }
 
