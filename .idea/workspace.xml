@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] 마이페이지">
-      <change afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/AuthControllerTest.java" afterDir="false" />
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] entity 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/CustomUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
-
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] 마이페이지 비번 확인">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/Payment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/Screens.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/Theater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +63,8 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-
     "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
-    "last_opened_file_path": "D:/BaekJoon",
     "last_opened_file_path": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE",
-
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +94,7 @@
       <recent name="D:\4th_grade\1st_semester\MunhakZip\Moviezip_Back\demo\src\main\resources\com\example\moviezip" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AuthControllerTest.testPasswordEncryptionAndValidation">
+  <component name="RunManager" selected="Spring Boot.MoviezipApplication">
     <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -688,11 +668,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-
-    <MESSAGE value="[add] : CustomUserDetailsService 추가 #27" />
     <MESSAGE value="[fix] : User domain 수정 #27" />
     <MESSAGE value="[fix] : User controller ?, User.xml 파일 삭제 #27" />
-
     <MESSAGE value="[fix] : MybatisUserDao 수정 #27" />
     <MESSAGE value="[fix] : UserDao 수정 #27" />
     <MESSAGE value="[fix] : UserMapper 수정 #27" />
@@ -714,16 +691,13 @@
     <MESSAGE value="pull" />
     <MESSAGE value="[feat] 머지 #61" />
     <MESSAGE value="[feat] 마이페이지" />
-
     <MESSAGE value="[feat] Add code description #3" />
     <MESSAGE value="[add] Add InterestDTO #4" />
     <MESSAGE value="[fix] Fix MybatisUserDao #4" />
     <MESSAGE value="[fix] Fix addInterest feature #4" />
-    <option name="LAST_COMMIT_MESSAGE" value="[fix] Fix addInterest feature #4" />
-
     <MESSAGE value="[feat] 마이페이지 비번 확인" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feat] 마이페이지 비번 확인" />
-
+    <MESSAGE value="[add] entity 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] entity 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
