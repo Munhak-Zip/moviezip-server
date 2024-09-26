@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] entity 추가">
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] add screenDate field to ScreenTime entity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" afterDir="false" />
     </list>
@@ -668,7 +668,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[fix] : User domain 수정 #27" />
     <MESSAGE value="[fix] : User controller ?, User.xml 파일 삭제 #27" />
     <MESSAGE value="[fix] : MybatisUserDao 수정 #27" />
     <MESSAGE value="[fix] : UserDao 수정 #27" />
@@ -697,7 +696,8 @@
     <MESSAGE value="[fix] Fix addInterest feature #4" />
     <MESSAGE value="[feat] 마이페이지 비번 확인" />
     <MESSAGE value="[add] entity 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] entity 추가" />
+    <MESSAGE value="[add] add screenDate field to ScreenTime entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] add screenDate field to ScreenTime entity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
