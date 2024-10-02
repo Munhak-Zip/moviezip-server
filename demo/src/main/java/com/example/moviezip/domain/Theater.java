@@ -1,6 +1,11 @@
 package com.example.moviezip.domain;
 
-public class Theater {
+import lombok.Getter;
+
+import java.io.Serializable;
+
+@Getter
+public class Theater implements Serializable {
 
     private Long theaterId;
     private String locationID;
