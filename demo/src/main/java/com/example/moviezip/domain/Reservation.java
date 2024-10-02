@@ -1,17 +1,16 @@
 package com.example.moviezip.domain;
 
+import lombok.Getter;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Getter
 public class Reservation extends Movie implements Serializable {
     private Long reserveId;
     private Long id;
     private Date dateR;
     private String seat;
-
-    public Long getId() {
-        return id;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -52,32 +51,16 @@ public class Reservation extends Movie implements Serializable {
         super.setMvTitle(movieTitle);
     }
 
-    public Long getReserveId() {
-        return reserveId;
-    }
-
     public void setReserveId(Long reserveId) {
         this.reserveId = reserveId;
-    }
-
-    public Date getDateR() {
-        return dateR;
     }
 
     public void setDateR(Date dateR) {
         this.dateR = dateR;
     }
 
-    public String getSeat() {
-        return seat;
-    }
-
     public void setSeat(String seat) {
         this.seat = seat;
-    }
-
-    public String getTime() {
-        return time;
     }
 
     public void setTime(String time) {
