@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] add screenDate field to ScreenTime entity">
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] merge">
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/TheaterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/TheaterDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mybatis/MybatisTheaterDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mybatis/mapper/TheaterMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/TheaterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/TheaterMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/TheaterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/ScreenTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/Theater.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/Theater.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +61,9 @@
     "JUnit.LoginTest.testLogin.executor": "Run",
     "JUnit.ReservationTest.executor": "Run",
     "JUnit.ReservationTest.testReservation.executor": "Run",
+    "JUnit.TheaterTest.executor": "Run",
+    "JUnit.TheaterTest.getScrrenTime.executor": "Run",
+    "JUnit.TheaterTest.getTheaterByLocation.executor": "Run",
     "JUnit.WishTest.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -61,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.MoviezipApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feat/1",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
     "last_opened_file_path": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE",
@@ -95,37 +107,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.MoviezipApplication">
-    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.AuthControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthControllerTest.testLoginWithInvalidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.AuthControllerTest" />
-      <option name="METHOD_NAME" value="testLoginWithInvalidCredentials" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AuthControllerTest.testLoginWithValidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -158,17 +139,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReservationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TheaterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.moviezip.domain.*" />
+          <option name="PATTERN" value="com.example.moviezip.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.domain.ReservationTest" />
+      <option name="PACKAGE_NAME" value="com.example.moviezip" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.TheaterTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TheaterTest.getScrrenTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.TheaterTest" />
+      <option name="METHOD_NAME" value="getScrrenTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TheaterTest.getTheaterByLocation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.TheaterTest" />
+      <option name="METHOD_NAME" value="getTheaterByLocation" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -206,20 +219,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AuthControllerTest" />
-      <item itemvalue="JUnit.AuthControllerTest.testLoginWithInvalidCredentials" />
+      <item itemvalue="JUnit.TheaterTest" />
+      <item itemvalue="JUnit.TheaterTest.getScrrenTime" />
+      <item itemvalue="JUnit.TheaterTest.getTheaterByLocation" />
       <item itemvalue="JUnit.AuthControllerTest.testLoginWithValidCredentials" />
       <item itemvalue="JUnit.AuthControllerTest.testPasswordEncryptionAndValidation" />
-      <item itemvalue="JUnit.ReservationTest" />
       <item itemvalue="Spring Boot.MoviezipApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TheaterTest.getScrrenTime" />
+        <item itemvalue="JUnit.TheaterTest" />
+        <item itemvalue="JUnit.TheaterTest.getTheaterByLocation" />
         <item itemvalue="JUnit.AuthControllerTest.testPasswordEncryptionAndValidation" />
         <item itemvalue="JUnit.AuthControllerTest.testLoginWithValidCredentials" />
-        <item itemvalue="JUnit.AuthControllerTest" />
-        <item itemvalue="JUnit.AuthControllerTest.testLoginWithInvalidCredentials" />
-        <item itemvalue="JUnit.ReservationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -257,14 +270,6 @@
       <workItem from="1726326588983" duration="494000" />
       <workItem from="1726409219078" duration="2321000" />
       <workItem from="1727342833967" duration="2104000" />
-    </task>
-    <task id="LOCAL-00048" summary="[fix] : update workspace">
-      <option name="closed" value="true" />
-      <created>1716389053235</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1716389053235</updated>
     </task>
     <task id="LOCAL-00049" summary="[add] : Spring security,JPA 의존성 추가">
       <option name="closed" value="true" />
@@ -650,7 +655,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726128403752</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="[feat] merge">
+      <option name="closed" value="true" />
+      <created>1727353772940</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1727353772940</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -668,7 +681,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[fix] : User controller ?, User.xml 파일 삭제 #27" />
     <MESSAGE value="[fix] : MybatisUserDao 수정 #27" />
     <MESSAGE value="[fix] : UserDao 수정 #27" />
     <MESSAGE value="[fix] : UserMapper 수정 #27" />
@@ -697,7 +709,8 @@
     <MESSAGE value="[feat] 마이페이지 비번 확인" />
     <MESSAGE value="[add] entity 추가" />
     <MESSAGE value="[add] add screenDate field to ScreenTime entity" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] add screenDate field to ScreenTime entity" />
+    <MESSAGE value="[feat] merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
