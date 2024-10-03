@@ -31,7 +31,9 @@ public class ReservationController {
                 request.getId(),
                 request.getDateR(),
                 request.getSeat(),
-                request.getTime()
+                request.getTime(),
+                request.getRegion(),
+                request.getPrice()
                 );
 
         reservationImpl.insertReservation(reservation);
