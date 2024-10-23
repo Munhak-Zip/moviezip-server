@@ -55,4 +55,7 @@ public interface UserMapper {
     User getUserById2(Long id);
 
     Interest findInterest2(Long id);
+
+    //어드민 아이디 가져오기
+    Long findAdminId();
 }

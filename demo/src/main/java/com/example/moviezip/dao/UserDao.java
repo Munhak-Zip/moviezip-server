@@ -44,4 +44,6 @@ public interface UserDao {
 
     Interest findInterest2(Long id) throws DataAccessException;
 
+    //어드민 아이디 가져오기
+    Long findAdminId() throws DataAccessException;
 }
