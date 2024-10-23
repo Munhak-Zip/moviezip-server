@@ -1,4 +1,4 @@
-package com.example.moviezip.configs;
+package com.example.moviezip.security;
 
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
@@ -48,6 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         authorizeRequests
                                 .antMatchers("/", "/loginProc", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**").permitAll()
                                 .antMatchers("/getId").authenticated()
+                                .antMatchers("/ws/**", "/topic/**").permitAll() // WebSocket 경로 허용
                                 .antMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )

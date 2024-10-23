@@ -27,4 +27,11 @@ public class TheaterImpl {
                                                 @Param("theaterName") String theaterName)
     {   return theaterDao.getScreeningDetails(movieId,screenDate,theaterName);  }
 
+    public Long getTheaterId(String theater){
+        return this.theaterDao.getTheaterId(theater);
+    }
+
+    public Long getScreenTimeId(String starttime, String screenDate, Long movieId){
+        return this.theaterDao.getScreenTimeId(starttime,screenDate,movieId);
+    }
 }
