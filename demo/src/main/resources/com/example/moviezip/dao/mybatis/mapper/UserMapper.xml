@@ -31,6 +31,11 @@
     <select id="findAllUser" resultType="User">
         SELECT * FROM USER_TABLE
     </select>
+
+    <select id="findAdminId" resultType="java.lang.Long">
+        SELECT ID FROM USER_TABLE  WHERE ROLE = 'ROLE_ADMIN'
+    </select>
+
     <insert id="addInterest">
         INSERT INTO INTEREST (ID, GENRE)
         VALUES
