@@ -51,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
                                 .antMatchers("/", "/loginProc", "/join", "/joinProc","/session-expired","/findUserId", "/checkExistsId", "/changePassword").permitAll()
+                                .antMatchers("/ws/**", "/topic/**").permitAll() // WebSocket 경로 허용
                                 .antMatchers("/getId").authenticated() // 인증된 사용자만 접근할 수 있도록 설정
                                 .anyRequest().authenticated() // 그 외 모든 요청은 인증 필요
                 )
