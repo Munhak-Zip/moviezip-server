@@ -4,39 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="region, price 추가 #10">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/MongoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketHandshakeInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatMessageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatRoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mongo/chat/ChatMessageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mongo/chat/ChatRoomRepository.java" afterDir="false" />
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="feat: ex #9">
       <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/LoginDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/chat/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/chat/ChatRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/chat/ChatMessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/chat/ChatRoomService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/SessionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/jpa/JpaReservationDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mybatis/MybatisUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mybatis/MybatisUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mybatis/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mybatis/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/security/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/UserMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/templates/join.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/templates/login.html" beforeDir="false" />
     </list>
@@ -305,159 +280,7 @@
       <workItem from="1729132315384" duration="2156000" />
       <workItem from="1729134873759" duration="24547000" />
       <workItem from="1729507029153" duration="13356000" />
-      <workItem from="1729654810358" duration="3382000" />
-    </task>
-    <task id="LOCAL-00053" summary="[add] : CustomUserDetailsService 추가 #27">
-      <option name="closed" value="true" />
-      <created>1717471537639</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471537639</updated>
-    </task>
-    <task id="LOCAL-00054" summary="[fix] : User domain 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471579107</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471579107</updated>
-    </task>
-    <task id="LOCAL-00055" summary="[fix] : User controller ?, User.xml 파일 삭제 #27">
-      <option name="closed" value="true" />
-      <created>1717471609001</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471609001</updated>
-    </task>
-    <task id="LOCAL-00056" summary="[fix] : MybatisUserDao 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471642871</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471642871</updated>
-    </task>
-    <task id="LOCAL-00057" summary="[fix] : UserDao 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471659311</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471659311</updated>
-    </task>
-    <task id="LOCAL-00058" summary="[fix] : UserMapper 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471672437</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471672437</updated>
-    </task>
-    <task id="LOCAL-00059" summary="[add] : UserMapper.xml  findByUserId 추가 #27">
-      <option name="closed" value="true" />
-      <created>1717471695753</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471695753</updated>
-    </task>
-    <task id="LOCAL-00060" summary="[fix] : UserController 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471729188</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471729188</updated>
-    </task>
-    <task id="LOCAL-00061" summary="[fix] : Interest 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471736971</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471736971</updated>
-    </task>
-    <task id="LOCAL-00062" summary="[add] : SecurityConfig 수정 #27">
-      <option name="closed" value="true" />
-      <created>1717471750968</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471750968</updated>
-    </task>
-    <task id="LOCAL-00063" summary="[add] : WebConfig 추가 #27">
-      <option name="closed" value="true" />
-      <created>1717471769066</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1717471769066</updated>
-    </task>
-    <task id="LOCAL-00064" summary="pull">
-      <option name="closed" value="true" />
-      <created>1718419099144</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1718419099144</updated>
-    </task>
-    <task id="LOCAL-00065" summary="[add] : mvImg 추가 #36">
-      <option name="closed" value="true" />
-      <created>1718420986650</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1718420986650</updated>
-    </task>
-    <task id="LOCAL-00066" summary="[add] : mvImg 추가 #36">
-      <option name="closed" value="true" />
-      <created>1718420992629</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1718420992629</updated>
-    </task>
-    <task id="LOCAL-00067" summary="[add] : mvImg 추가 #36">
-      <option name="closed" value="true" />
-      <created>1718421160719</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1718421160719</updated>
-    </task>
-    <task id="LOCAL-00068" summary="[add] : mvImg 추가 #36">
-      <option name="closed" value="true" />
-      <created>1718424264233</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1718424264233</updated>
-    </task>
-    <task id="LOCAL-00069" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452159609</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452159609</updated>
-    </task>
-    <task id="LOCAL-00070" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452163385</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452163385</updated>
-    </task>
-    <task id="LOCAL-00071" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452166879</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452166879</updated>
+      <workItem from="1729654810358" duration="3999000" />
     </task>
     <task id="LOCAL-00072" summary="[feat] : 영화 디테일 연결 #36">
       <option name="closed" value="true" />
@@ -699,7 +522,159 @@
       <option name="project" value="LOCAL" />
       <updated>1727967632535</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="feat: add ChatMessage #9">
+      <option name="closed" value="true" />
+      <created>1729659727048</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659727048</updated>
+    </task>
+    <task id="LOCAL-00103" summary="feat: add ChatMessageController #9">
+      <option name="closed" value="true" />
+      <created>1729659777671</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659777671</updated>
+    </task>
+    <task id="LOCAL-00104" summary="feat: add ChatMessageRepository #9">
+      <option name="closed" value="true" />
+      <created>1729659796385</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659796385</updated>
+    </task>
+    <task id="LOCAL-00105" summary="feat: add ChatMessageService #9">
+      <option name="closed" value="true" />
+      <created>1729659831985</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659831985</updated>
+    </task>
+    <task id="LOCAL-00106" summary="feat: add ChatRoom #9">
+      <option name="closed" value="true" />
+      <created>1729659845463</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659845463</updated>
+    </task>
+    <task id="LOCAL-00107" summary="feat: add ChatRoomController #9">
+      <option name="closed" value="true" />
+      <created>1729659857393</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659857393</updated>
+    </task>
+    <task id="LOCAL-00108" summary="feat: add ChatRoomRepository #9">
+      <option name="closed" value="true" />
+      <created>1729659869286</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659869286</updated>
+    </task>
+    <task id="LOCAL-00109" summary="feat: add ChatRoomService #9">
+      <option name="closed" value="true" />
+      <created>1729659887460</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659887460</updated>
+    </task>
+    <task id="LOCAL-00110" summary="feat: add comment to CustomUserDetails #9">
+      <option name="closed" value="true" />
+      <created>1729659935046</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659935046</updated>
+    </task>
+    <task id="LOCAL-00111" summary="feat: add WebSocketConfig #9">
+      <option name="closed" value="true" />
+      <created>1729659971252</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659971252</updated>
+    </task>
+    <task id="LOCAL-00112" summary="feat: add WebSocketHandshakeInterceptor #9">
+      <option name="closed" value="true" />
+      <created>1729659986081</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1729659986081</updated>
+    </task>
+    <task id="LOCAL-00113" summary="feat: add WebConfig #9">
+      <option name="closed" value="true" />
+      <created>1729660000394</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660000394</updated>
+    </task>
+    <task id="LOCAL-00114" summary="feat: add MongoConfig #9">
+      <option name="closed" value="true" />
+      <created>1729660020295</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660020295</updated>
+    </task>
+    <task id="LOCAL-00115" summary="feat: add get adminId #9">
+      <option name="closed" value="true" />
+      <created>1729660075806</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660075806</updated>
+    </task>
+    <task id="LOCAL-00116" summary="feat: fix SecurityConfig #9">
+      <option name="closed" value="true" />
+      <created>1729660119120</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660119120</updated>
+    </task>
+    <task id="LOCAL-00117" summary="feat: fix SessionController #9">
+      <option name="closed" value="true" />
+      <created>1729660136897</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660136897</updated>
+    </task>
+    <task id="LOCAL-00118" summary="feat: add Role Enum #9">
+      <option name="closed" value="true" />
+      <created>1729660167470</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660167470</updated>
+    </task>
+    <task id="LOCAL-00119" summary="feat: add AdminController #9">
+      <option name="closed" value="true" />
+      <created>1729660181525</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660181525</updated>
+    </task>
+    <task id="LOCAL-00120" summary="feat: ex #9">
+      <option name="closed" value="true" />
+      <created>1729660195544</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1729660195544</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -717,25 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[fix] : UserController 수정 #27" />
-    <MESSAGE value="[fix] : Interest 수정 #27" />
-    <MESSAGE value="[add] : SecurityConfig 수정 #27" />
-    <MESSAGE value="[add] : WebConfig 추가 #27" />
-    <MESSAGE value="[add] : mvImg 추가 #36" />
-    <MESSAGE value="workspace" />
-    <MESSAGE value="[feat] : 영화 디테일 연결 #36" />
-    <MESSAGE value="[feat] : 수정 #36" />
-    <MESSAGE value="[feat] : 영화 예매 내역 출력 #36" />
-    <MESSAGE value="머지" />
-    <MESSAGE value="[feat] 평론가 리뷰 제공 #48" />
-    <MESSAGE value="pull 받으려고 커밋" />
-    <MESSAGE value="[fix/#57] wishmapper.xml &amp; review 도메인 수정" />
-    <MESSAGE value="[merge] #56" />
-    <MESSAGE value="pull" />
-    <MESSAGE value="[feat] 머지 #61" />
-    <MESSAGE value="[feat] 마이페이지" />
-    <MESSAGE value="[feat] Add code description #3" />
-    <MESSAGE value="[add] Add InterestDTO #4" />
     <MESSAGE value="[fix] Fix MybatisUserDao #4" />
     <MESSAGE value="[fix] Fix addInterest feature #4" />
     <MESSAGE value="[feat] 마이페이지 비번 확인" />
@@ -745,7 +701,26 @@
     <MESSAGE value="resolve conflict" />
     <MESSAGE value="payment entity 삭제 #10" />
     <MESSAGE value="region, price 추가 #10" />
-    <option name="LAST_COMMIT_MESSAGE" value="region, price 추가 #10" />
+    <MESSAGE value="feat: add ChatMessage #9" />
+    <MESSAGE value="feat: add ChatMessageController #9" />
+    <MESSAGE value="feat: add ChatMessageRepository #9" />
+    <MESSAGE value="feat: add ChatMessageService #9" />
+    <MESSAGE value="feat: add ChatRoom #9" />
+    <MESSAGE value="feat: add ChatRoomController #9" />
+    <MESSAGE value="feat: add ChatRoomRepository #9" />
+    <MESSAGE value="feat: add ChatRoomService #9" />
+    <MESSAGE value="feat: add comment to CustomUserDetails #9" />
+    <MESSAGE value="feat: add WebSocketConfig #9" />
+    <MESSAGE value="feat: add WebSocketHandshakeInterceptor #9" />
+    <MESSAGE value="feat: add WebConfig #9" />
+    <MESSAGE value="feat: add MongoConfig #9" />
+    <MESSAGE value="feat: add get adminId #9" />
+    <MESSAGE value="feat: fix SecurityConfig #9" />
+    <MESSAGE value="feat: fix SessionController #9" />
+    <MESSAGE value="feat: add Role Enum #9" />
+    <MESSAGE value="feat: add AdminController #9" />
+    <MESSAGE value="feat: ex #9" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: ex #9" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
