@@ -4,16 +4,22 @@ package com.example.moviezip.controller;
 import com.example.moviezip.domain.*;
 import com.example.moviezip.service.CustomUserDetailsService;
 import com.example.moviezip.service.UserServiceImpl;
+import org.apache.catalina.Authenticator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.Map;
@@ -30,6 +36,23 @@ public class UserController {
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private HttpSession httpSession; // HttpSession 주입
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @PostMapping("/loginProc")
+    public ResponseEntity<?> loginProc(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
+        // 인증 로직
+
+        Authentication auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("username", loginDTO.getUsername()); // 사용자 세션에 저장
+
+        return ResponseEntity.ok("Login successful");
+    }
 
     //회원가입
     @PostMapping("/joinProc")
@@ -47,6 +70,16 @@ public class UserController {
         System.out.println("ddd"+userDetails.getUsername());
         return ResponseEntity.ok(userDetails.getUsername());
     }
+
+
+    //어드민 아이디 받아오기
+
+    @GetMapping("/api/getAdminId")
+    public ResponseEntity<Long> findAdminId() {
+        Long adminId = userService.findAdminId();
+        return ResponseEntity.ok(adminId);
+    }
+
 
     // 사용자 고유 아이디 받아오는 컨트롤러
     @GetMapping("/getId")
