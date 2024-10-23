@@ -123,4 +123,10 @@ public class MybatisUserDao implements UserDao {
     public Interest findInterest2(Long id) throws DataAccessException {
         return userMapper.findInterest2(id);
     }
+
+    //어드민 아이디 가져오기
+    @Override
+    public Long findAdminId() throws DataAccessException{
+        return userMapper.findAdminId();
+    }
 }

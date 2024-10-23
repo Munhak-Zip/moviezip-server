@@ -134,4 +134,10 @@ public class UserServiceImpl implements UserService {
         return mybatisUserDao.findInterest2(id);
     }
 
+    @Override
+    public Long findAdminId() {
+        return mybatisUserDao.findAdminId();
+    }
+
+
 }

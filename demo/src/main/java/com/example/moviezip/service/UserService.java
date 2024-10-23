@@ -35,4 +35,6 @@ public interface UserService {
     User getUserById2(Long id);
 
     Interest findInterest2(Long id);
+
+    Long findAdminId();
 }
