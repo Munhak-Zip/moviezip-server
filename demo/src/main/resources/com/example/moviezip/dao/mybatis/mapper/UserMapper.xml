@@ -31,6 +31,11 @@
     <select id="findAllUser" resultType="User">
         SELECT * FROM USER_TABLE
     </select>
+
+    <select id="findAdminId" resultType="java.lang.Long">
+        SELECT ID FROM USER_TABLE  WHERE ROLE = 'ROLE_ADMIN'
+    </select>
+
     <insert id="addInterest">
         INSERT INTO INTEREST (ID, GENRE)
         VALUES
@@ -88,6 +93,12 @@
         SELECT USERID
         FROM USER_TABLE
         WHERE NICKNAME = #{nickname} AND HINT = #{hint}
+    </select>
+
+    <select id="findInterest2" resultType="java.lang.String">
+        SELECT INTEREST.GENRE
+        FROM INTEREST
+        WHERE ID = #{id}
     </select>
 
     <select id="checkUserExistsById" resultType="boolean">

@@ -14,7 +14,7 @@ public interface UserDao {
 
     public User findUser(String hint, String nickname) throws DataAccessException;
 
-    public void updateNickname(Long id, String newNickname) throws DataAccessException;
+    public void updateUserNickname(Long id, String newNickname) throws DataAccessException;
 
     public User existingNickname(String nickname) throws DataAccessException;
 
@@ -42,6 +42,8 @@ public interface UserDao {
 
     Boolean checkUserExistsById(String userId) throws DataAccessException;
 
-    Interest findInterest2(Long id) throws DataAccessException;
+    List<String> findInterest2(Long id) throws DataAccessException;
 
+    //어드민 아이디 가져오기
+    Long findAdminId() throws DataAccessException;
 }

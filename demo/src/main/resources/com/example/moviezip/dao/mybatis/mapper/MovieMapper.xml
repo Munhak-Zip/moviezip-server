@@ -10,21 +10,24 @@
 
     <select id="getRecentMovie" resultType="Movie">
     <![CDATA[
-        SELECT * FROM (
-                          SELECT
-                              MOVIE.MOVIE_TITLE AS mvTitle,
-                              MOVIE.MOVIE_STAR AS mvStar,
-                              MOVIE.MOVIE_DETAIL AS mvDetail,
-                              MOVIE.MOVIE_DIRECTOR AS mvDirector,
-                              MOVIE.MOVIE_ID AS mvId,
-                              MOVIE.MOVIE_OPENDATE AS openDate,
-                              MOVIE.MOVIE_IMG AS mvImg,
-                              ROWNUM AS rnum
-                          FROM MOVIE
-                          WHERE MOVIE.MOVIE_opendate >= TRUNC(SYSDATE) - 365
-                          ORDER BY MOVIE.MOVIE_OPENDATE DESC
-                      )
-        WHERE rnum <= 5
+        SELECT *
+        FROM (
+                 SELECT
+                     MOVIE_TITLE AS mvTitle,
+                     MOVIE_STAR AS mvStar,
+                     MOVIE_DETAIL AS mvDetail,
+                     MOVIE_DIRECTOR AS mvDirector,
+                     MOVIE_ID AS mvId,
+                     MOVIE_OPENDATE AS openDate,
+                     MOVIE_IMG AS mvImg
+                 FROM
+                     MOVIE
+                 WHERE
+                     MOVIE_OPENDATE <= SYSDATE
+                 ORDER BY
+                     MOVIE_OPENDATE DESC
+             )
+        WHERE ROWNUM <= 5
         ]]>
     </select>
 

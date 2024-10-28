@@ -4,18 +4,26 @@ package com.example.moviezip.controller;
 import com.example.moviezip.domain.*;
 import com.example.moviezip.service.CustomUserDetailsService;
 import com.example.moviezip.service.UserServiceImpl;
+import org.apache.catalina.Authenticator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -30,6 +38,23 @@ public class UserController {
     private BCryptPasswordEncoder passwordEncoder;
     @Autowired
     private HttpSession httpSession; // HttpSession 주입
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @PostMapping("/loginProc")
+    public ResponseEntity<?> loginProc(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
+        // 인증 로직
+
+        Authentication auth = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
+        );
+
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        HttpSession session = request.getSession(true);
+        session.setAttribute("username", loginDTO.getUsername()); // 사용자 세션에 저장
+
+        return ResponseEntity.ok("Login successful");
+    }
 
     //회원가입
     @PostMapping("/joinProc")
@@ -47,6 +72,16 @@ public class UserController {
         System.out.println("ddd"+userDetails.getUsername());
         return ResponseEntity.ok(userDetails.getUsername());
     }
+
+
+    //어드민 아이디 받아오기
+
+    @GetMapping("/api/getAdminId")
+    public ResponseEntity<Long> findAdminId() {
+        Long adminId = userService.findAdminId();
+        return ResponseEntity.ok(adminId);
+    }
+
 
     // 사용자 고유 아이디 받아오는 컨트롤러
     @GetMapping("/getId")
@@ -134,10 +169,11 @@ public class UserController {
     //나의 관심사 체크
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/mypage/user/interest")
-    public Interest findMypageInterest(@RequestParam long userId) {
+    public List<String> findMypageInterest(@RequestParam long userId) {
         System.out.println("마이페이지 사용자"+userId);
-        Interest i = userService.findInterest2(userId);
-        System.out.println("사용자"+ i.getGenre());
+        List<String> i = userService.findInterest2(userId);
+
+        System.out.println("사용자"+ i.get(0));
         return i;
     }
 
@@ -164,4 +200,27 @@ public class UserController {
             return false;
         }
     }
+
+
+    //닉네임 수정
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/changeNickname")
+    public void changeNickname(@RequestBody Map<String, String> payload) {
+        Long id = Long.valueOf(payload.get("userId"));
+        System.out.println("사용자 아이디:!!!! " + id);
+        String newNickname = payload.get("newNickname");
+        System.out.println("사용자 닉네임: " + newNickname);
+        userService.updateUserNickname(id,newNickname);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/changeInterest")
+    public void changeInterest(@RequestBody Map<String, String> payload) {
+        Long id = Long.valueOf(payload.get("userId"));
+        System.out.println("사용자 아이디:!!!! " + id);
+        String genre = payload.get("genre");
+        System.out.println("사용자 닉네임: " + genre);
+        userService.updateInterest(id, genre);
+    }
+
 }

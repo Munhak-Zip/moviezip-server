@@ -6,9 +6,9 @@
 
     <insert id="insertReservation" parameterType="Reservation">
         INSERT INTO RESERVATION
-            (RESERVATE_DATE, SEAT, TIME, MOVIE_ID, ID)
+            (RESERVATE_DATE, SEAT, TIME, MOVIE_ID, ID, REGION, PRICE)
         VALUES
-            (#{dateR}, #{seat}, #{time}, #{mvId}, #{id})
+            (#{dateR}, #{seat}, #{time}, #{mvId}, #{id}, #{region}, #{price})
     </insert>
 
     <update id="updateReservation" parameterType="Reservation">

@@ -31,4 +31,16 @@
           AND st.SCREEN_DATE = TO_DATE(#{screenDate}, 'YYYY-MM-DD')
           AND th.THEATERNAME = #{theaterName}
     </select>
+
+    <select id="getTheaterId" resultType="Long">
+        SELECT THEATER.THEATERID
+        FROM THEATER
+        WHERE THEATER.THEATERNAME = #{theater}
+    </select>
+
+    <select id="getScreenTimeId" resultType="Long">
+        SELECT SCREENTIME.SCREENTIMEID
+        FROM SCREENTIME
+        WHERE starttime=#{starttime} AND screen_date=#{screenDate} AND movie_id = #{movieId}
+    </select>
 </mapper>

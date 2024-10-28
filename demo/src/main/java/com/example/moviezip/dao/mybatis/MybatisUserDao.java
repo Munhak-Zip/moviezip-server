@@ -33,7 +33,7 @@ public class MybatisUserDao implements UserDao {
     }
 
     @Override
-    public void updateNickname(Long id, String newNickname) throws DataAccessException{
+    public void updateUserNickname(Long id, String newNickname) throws DataAccessException{
         System.out.println("MybatisUserDao - updateNickname - id: " + id + ", nickname: " + newNickname);
         userMapper.updateUserNickname(id, newNickname);
     }
@@ -120,7 +120,13 @@ public class MybatisUserDao implements UserDao {
     }
 
     @Override
-    public Interest findInterest2(Long id) throws DataAccessException {
+    public List<String> findInterest2(Long id) throws DataAccessException {
         return userMapper.findInterest2(id);
+    }
+
+    //어드민 아이디 가져오기
+    @Override
+    public Long findAdminId() throws DataAccessException{
+        return userMapper.findAdminId();
     }
 }

@@ -9,7 +9,9 @@ import java.util.List;
 
 public interface UserService {
     public void updateUserPassword(Long id, String newPassword);
-    public void updateNickname(Long id, String newNickname);
+    public void updateUserNickname(Long id, String newNickname);
+
+    public void updateInterest (Long id, String genre);
 
     public void deleteUser(Long id);
 
@@ -34,5 +36,7 @@ public interface UserService {
 
     User getUserById2(Long id);
 
-    Interest findInterest2(Long id);
+    List<String> findInterest2(Long id);
+
+    Long findAdminId();
 }

@@ -24,4 +24,16 @@ public class MybatisTheaterDao implements TheaterDao {
     public List<ScreenDetail> getScreeningDetails(Long movieId, String screenDate, String theaterName) throws DataAccessException {
         return theaterMapper.getScreeningDetails(movieId, screenDate, theaterName);
     }
+
+    @Override
+    public Long getTheaterId(String theater) throws DataAccessException {
+        return theaterMapper.getTheaterId(theater);
+    }
+
+    @Override
+    public Long getScreenTimeId(String starttime, String screenDate, Long movieId) throws DataAccessException {
+        return theaterMapper.getScreenTimeId(starttime, screenDate, movieId);
+    }
+
+
 }

@@ -16,4 +16,9 @@ public interface TheaterDao {
     List<ScreenDetail> getScreeningDetails(@Param("movieId") Long movieId,
                                          @Param("screenDate") String screenDate,
                                          @Param("theaterName") String theaterName) throws DataAccessException;
+    Long getTheaterId(@Param("theater") String theater) throws DataAccessException;
+
+    Long getScreenTimeId(@Param("starttime") String starttime, @Param("screenDate") String screenDate, @Param("movieId") Long movieId) throws DataAccessException;
+
+
 }

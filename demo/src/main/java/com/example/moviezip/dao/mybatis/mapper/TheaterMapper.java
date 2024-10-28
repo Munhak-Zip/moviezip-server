@@ -16,4 +16,8 @@ public interface TheaterMapper {
     List<ScreenDetail> getScreeningDetails(@Param("movieId") Long movieId,
                                          @Param("screenDate") String screenDate,
                                          @Param("theaterName") String theaterName);
+
+    Long getTheaterId(@Param("theater") String theater);
+
+    Long getScreenTimeId(@Param("starttime") String starttime, @Param("screenDate") String screenDate, @Param("movieId") Long movieId);
 }
