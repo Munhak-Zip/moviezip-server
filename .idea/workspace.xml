@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="feat: ex #9">
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] workspace">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/config/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/TheaterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/TheaterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/MovieMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/MovieMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/csv/rating.csv" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/csv/rating.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +32,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="1be1d789-f1f4-4152-8103-fe128d6e8c16" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -48,47 +46,47 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.LoginTest.executor": "Run",
-    "JUnit.LoginTest.testLogin.executor": "Run",
-    "JUnit.ReservationTest.executor": "Run",
-    "JUnit.ReservationTest.testReservation.executor": "Run",
-    "JUnit.TheaterTest.executor": "Run",
-    "JUnit.TheaterTest.getScrrenTime.executor": "Run",
-    "JUnit.TheaterTest.getTheaterByLocation.executor": "Run",
-    "JUnit.WishTest.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.MoviezipApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feat/12",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
-    "last_opened_file_path": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_FE",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.applicationServers",
-    "spring.configuration.checksum": "fe01ce2a7fbac8fafaed7c982a04e229",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.LoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTest.testLogin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReservationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ReservationTest.testReservation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TheaterTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TheaterTest.getScrrenTime.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TheaterTest.getTheaterByLocation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WishTest.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.MoviezipApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/12&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/4th_grade/1st_semester/SoftwareContest/MovieZip_FE&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.applicationServers&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;fe01ce2a7fbac8fafaed7c982a04e229&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "oracle",
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;,
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\4th_grade\1st_semester\MunhakZip\Moviezip_Back\demo\src\main\resources\com\example\moviezip\dao\mybatis\mapper" />
@@ -275,78 +273,7 @@
       <workItem from="1729134873759" duration="24547000" />
       <workItem from="1729507029153" duration="13356000" />
       <workItem from="1729654810358" duration="3999000" />
-    </task>
-    <task id="LOCAL-00072" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452170217</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452170217</updated>
-    </task>
-    <task id="LOCAL-00073" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452173518</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452173518</updated>
-    </task>
-    <task id="LOCAL-00074" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452176748</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452176748</updated>
-    </task>
-    <task id="LOCAL-00075" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452180435</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452180435</updated>
-    </task>
-    <task id="LOCAL-00076" summary="[feat] : 영화 디테일 연결 #36">
-      <option name="closed" value="true" />
-      <created>1718452183798</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1718452183798</updated>
-    </task>
-    <task id="LOCAL-00077" summary="[feat] : 수정 #36">
-      <option name="closed" value="true" />
-      <created>1718630064025</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1718630064025</updated>
-    </task>
-    <task id="LOCAL-00078" summary="[feat] : 수정 #36">
-      <option name="closed" value="true" />
-      <created>1718630081236</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1718630081236</updated>
-    </task>
-    <task id="LOCAL-00079" summary="[feat] : 영화 예매 내역 출력 #36">
-      <option name="closed" value="true" />
-      <created>1718719890734</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1718719890734</updated>
-    </task>
-    <task id="LOCAL-00080" summary="[feat] : 영화 예매 내역 출력 #36">
-      <option name="closed" value="true" />
-      <created>1718719894992</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1718719894992</updated>
+      <workItem from="1730016599131" duration="7369000" />
     </task>
     <task id="LOCAL-00081" summary="[feat] : 영화 예매 내역 출력 #36">
       <option name="closed" value="true" />
@@ -668,7 +595,79 @@
       <option name="project" value="LOCAL" />
       <updated>1729660195544</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="[feat] dataSources">
+      <option name="closed" value="true" />
+      <created>1729666075708</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1729666075708</updated>
+    </task>
+    <task id="LOCAL-00122" summary="[feat] myBatisUserDao 추가">
+      <option name="closed" value="true" />
+      <created>1730018282716</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018282717</updated>
+    </task>
+    <task id="LOCAL-00123" summary="[feat] 비번 수정, 닉네임 수정 - UserController 추가">
+      <option name="closed" value="true" />
+      <created>1730018322789</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018322789</updated>
+    </task>
+    <task id="LOCAL-00124" summary="[feat] 비번 수정, 닉네임 수정 - UserDao 추가">
+      <option name="closed" value="true" />
+      <created>1730018333345</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018333345</updated>
+    </task>
+    <task id="LOCAL-00125" summary="[feat] 비번 수정, 닉네임 수정 - UserMapper 추가">
+      <option name="closed" value="true" />
+      <created>1730018342694</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018342694</updated>
+    </task>
+    <task id="LOCAL-00126" summary="[feat] 비번 수정, 닉네임 수정 - UserMapper.xml 추가">
+      <option name="closed" value="true" />
+      <created>1730018350447</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018350447</updated>
+    </task>
+    <task id="LOCAL-00127" summary="[feat] 비번 수정, 닉네임 수정 - UserServiceImpl 추가">
+      <option name="closed" value="true" />
+      <created>1730018365180</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018365180</updated>
+    </task>
+    <task id="LOCAL-00128" summary="[feat] 비번 수정, 닉네임 수정 - UserService 추가">
+      <option name="closed" value="true" />
+      <created>1730018371752</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018371752</updated>
+    </task>
+    <task id="LOCAL-00129" summary="[feat] workspace">
+      <option name="closed" value="true" />
+      <created>1730018383733</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1730018383733</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,15 +685,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="[fix] Fix MybatisUserDao #4" />
-    <MESSAGE value="[fix] Fix addInterest feature #4" />
-    <MESSAGE value="[feat] 마이페이지 비번 확인" />
-    <MESSAGE value="[add] entity 추가" />
-    <MESSAGE value="[add] add screenDate field to ScreenTime entity" />
-    <MESSAGE value="[feat] merge" />
-    <MESSAGE value="resolve conflict" />
-    <MESSAGE value="payment entity 삭제 #10" />
-    <MESSAGE value="region, price 추가 #10" />
     <MESSAGE value="feat: add ChatMessage #9" />
     <MESSAGE value="feat: add ChatMessageController #9" />
     <MESSAGE value="feat: add ChatMessageRepository #9" />
@@ -714,7 +704,16 @@
     <MESSAGE value="feat: add Role Enum #9" />
     <MESSAGE value="feat: add AdminController #9" />
     <MESSAGE value="feat: ex #9" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: ex #9" />
+    <MESSAGE value="[feat] dataSources" />
+    <MESSAGE value="[feat] myBatisUserDao 추가" />
+    <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserController 추가" />
+    <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserDao 추가" />
+    <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserMapper 추가" />
+    <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserMapper.xml 추가" />
+    <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserServiceImpl 추가" />
+    <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserService 추가" />
+    <MESSAGE value="[feat] workspace" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] workspace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

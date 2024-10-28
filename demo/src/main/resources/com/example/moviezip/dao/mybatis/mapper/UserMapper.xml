@@ -95,6 +95,12 @@
         WHERE NICKNAME = #{nickname} AND HINT = #{hint}
     </select>
 
+    <select id="findInterest2" resultType="java.lang.String">
+        SELECT INTEREST.GENRE
+        FROM INTEREST
+        WHERE ID = #{id}
+    </select>
+
     <select id="checkUserExistsById" resultType="boolean">
         SELECT CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
         FROM USER_TABLE

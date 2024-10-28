@@ -68,8 +68,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateNickname(Long id, String newNickname) {
+    public void updateUserNickname(Long id, String newNickname) {
+        mybatisUserDao.updateUserNickname(id, newNickname);
+    }
 
+    @Override
+    public void updateInterest(Long id, String genre) {
+        mybatisUserDao.updateInterest(id, genre);
     }
 
     @Override
@@ -130,7 +135,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Interest findInterest2(Long id) {
+    public List<String> findInterest2(Long id) {
         return mybatisUserDao.findInterest2(id);
     }
 

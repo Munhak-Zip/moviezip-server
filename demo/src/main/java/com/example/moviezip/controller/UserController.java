@@ -22,6 +22,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -167,10 +169,11 @@ public class UserController {
     //나의 관심사 체크
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/mypage/user/interest")
-    public Interest findMypageInterest(@RequestParam long userId) {
+    public List<String> findMypageInterest(@RequestParam long userId) {
         System.out.println("마이페이지 사용자"+userId);
-        Interest i = userService.findInterest2(userId);
-        System.out.println("사용자"+ i.getGenre());
+        List<String> i = userService.findInterest2(userId);
+
+        System.out.println("사용자"+ i.get(0));
         return i;
     }
 
@@ -197,4 +200,27 @@ public class UserController {
             return false;
         }
     }
+
+
+    //닉네임 수정
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/changeNickname")
+    public void changeNickname(@RequestBody Map<String, String> payload) {
+        Long id = Long.valueOf(payload.get("userId"));
+        System.out.println("사용자 아이디:!!!! " + id);
+        String newNickname = payload.get("newNickname");
+        System.out.println("사용자 닉네임: " + newNickname);
+        userService.updateUserNickname(id,newNickname);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @PostMapping("/changeInterest")
+    public void changeInterest(@RequestBody Map<String, String> payload) {
+        Long id = Long.valueOf(payload.get("userId"));
+        System.out.println("사용자 아이디:!!!! " + id);
+        String genre = payload.get("genre");
+        System.out.println("사용자 닉네임: " + genre);
+        userService.updateInterest(id, genre);
+    }
+
 }
