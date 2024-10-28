@@ -68,6 +68,8 @@ public class TheaterController {
 
         List<ScreenDetail> sd = theater.getScreeningDetails(movieId, screenDate, theaterName);
 
+        System.out.println(screenDate + "날짜!!");
+
         for (ScreenDetail t : sd) {
             System.out.println("ScreenID: " + t.getTimeId());
             System.out.println("Theater: " + t.getScreenName());
