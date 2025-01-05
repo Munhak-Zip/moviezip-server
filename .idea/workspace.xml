@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] 테스트 코드 도입 시도">
-      <change afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/LoginControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/UserServiceImplTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] 테스트 코드 도입 시도" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -280,7 +277,7 @@
       <workItem from="1731723921763" duration="7007000" />
       <workItem from="1734481985975" duration="2014000" />
       <workItem from="1734964017179" duration="3896000" />
-      <workItem from="1735977084248" duration="14652000" />
+      <workItem from="1735977084248" duration="15109000" />
     </task>
     <task id="LOCAL-00086" summary="[feat] 평론가 리뷰 제공 #48">
       <option name="closed" value="true" />
