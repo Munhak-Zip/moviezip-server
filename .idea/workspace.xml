@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] workspace">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/jwt/AuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/jwt/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" afterDir="false" />
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] 테스트 코드 도입 시도">
       <change afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/LoginControllerTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/UserServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/csv/rating.csv" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/csv/rating.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,47 +280,7 @@
       <workItem from="1731723921763" duration="7007000" />
       <workItem from="1734481985975" duration="2014000" />
       <workItem from="1734964017179" duration="3896000" />
-      <workItem from="1735977084248" duration="14109000" />
-    </task>
-    <task id="LOCAL-00081" summary="[feat] : 영화 예매 내역 출력 #36">
-      <option name="closed" value="true" />
-      <created>1718719898569</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1718719898569</updated>
-    </task>
-    <task id="LOCAL-00082" summary="[feat] : 영화 예매 내역 출력 #36">
-      <option name="closed" value="true" />
-      <created>1718719902655</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1718719902655</updated>
-    </task>
-    <task id="LOCAL-00083" summary="[feat] : 영화 예매 내역 출력 #36">
-      <option name="closed" value="true" />
-      <created>1718719915551</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1718719915551</updated>
-    </task>
-    <task id="LOCAL-00084" summary="pull">
-      <option name="closed" value="true" />
-      <created>1718789956465</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1718789956466</updated>
-    </task>
-    <task id="LOCAL-00085" summary="[feat] 평론가 리뷰 제공 #48">
-      <option name="closed" value="true" />
-      <created>1718800539990</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1718800539990</updated>
+      <workItem from="1735977084248" duration="14652000" />
     </task>
     <task id="LOCAL-00086" summary="[feat] 평론가 리뷰 제공 #48">
       <option name="closed" value="true" />
@@ -688,7 +634,47 @@
       <option name="project" value="LOCAL" />
       <updated>1730018383733</updated>
     </task>
-    <option name="localTasksCounter" value="130" />
+    <task id="LOCAL-00130" summary="[add] jwt 관련 라이브러리 추가">
+      <option name="closed" value="true" />
+      <created>1736063252427</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1736063252427</updated>
+    </task>
+    <task id="LOCAL-00131" summary="[add] 이전 변경 내역">
+      <option name="closed" value="true" />
+      <created>1736063342737</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1736063342737</updated>
+    </task>
+    <task id="LOCAL-00132" summary="[add] application.properties jwt 만료시간 등 추가">
+      <option name="closed" value="true" />
+      <created>1736063379670</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1736063379670</updated>
+    </task>
+    <task id="LOCAL-00133" summary="[fix] session에서 jwt로 변경">
+      <option name="closed" value="true" />
+      <created>1736063487423</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1736063487423</updated>
+    </task>
+    <task id="LOCAL-00134" summary="[add] 테스트 코드 도입 시도">
+      <option name="closed" value="true" />
+      <created>1736063527187</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1736063527187</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -706,11 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add ChatMessageController #9" />
-    <MESSAGE value="feat: add ChatMessageRepository #9" />
-    <MESSAGE value="feat: add ChatMessageService #9" />
-    <MESSAGE value="feat: add ChatRoom #9" />
-    <MESSAGE value="feat: add ChatRoomController #9" />
     <MESSAGE value="feat: add ChatRoomRepository #9" />
     <MESSAGE value="feat: add ChatRoomService #9" />
     <MESSAGE value="feat: add comment to CustomUserDetails #9" />
@@ -733,7 +714,12 @@
     <MESSAGE value="[feat] 비번 수정, 닉네임 수정 - UserService 추가" />
     <MESSAGE value="[feat] workspace" />
     <MESSAGE value="feat: ex #9" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: ex #9" />
+    <MESSAGE value="[add] jwt 관련 라이브러리 추가" />
+    <MESSAGE value="[add] 이전 변경 내역" />
+    <MESSAGE value="[add] application.properties jwt 만료시간 등 추가" />
+    <MESSAGE value="[fix] session에서 jwt로 변경" />
+    <MESSAGE value="[add] 테스트 코드 도입 시도" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] 테스트 코드 도입 시도" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
