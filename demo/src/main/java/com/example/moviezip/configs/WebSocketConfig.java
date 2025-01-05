@@ -31,7 +31,7 @@ ws://localhost:8080/chat를 호출하면 websocket 연결이 될 것이다.
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry){
-        registry.enableSimpleBroker("/topic", "/queue"); //메시지 구독 요청 : 메시지 송신
+        registry.enableSimpleBroker("/topic"); //메시지 구독 요청 : 메시지 송신
         registry.setApplicationDestinationPrefixes("/app"); //메시지 발행 요청: 메시지 수신
     }
 
