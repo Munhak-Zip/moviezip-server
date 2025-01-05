@@ -1,4 +1,4 @@
-package com.example.moviezip.security;
+package com.example.moviezip.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

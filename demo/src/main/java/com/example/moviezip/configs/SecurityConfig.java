@@ -1,5 +1,6 @@
-package com.example.moviezip.security;
+package com.example.moviezip.configs;
 
+import com.example.moviezip.filters.JwtRequestFilter;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,17 +18,17 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity // Spring Security 활성화
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final JwtRequestFilter jwtAuthenticationFilter;
+
+    public SecurityConfig(JwtRequestFilter jwtAuthenticationFilter) {
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    }
 
     // 정적 자원에 대해서는 Security 설정을 적용하지 않음.
     @Override
@@ -46,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors(withDefaults()) // CORS 설정 활성화
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .antMatchers("/", "/loginProc", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**").permitAll()
+                                .antMatchers("/", "/authenticate", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**").permitAll()
                                 .antMatchers("/getId").authenticated()
                                 .antMatchers("/ws/**", "/topic/**").permitAll() // WebSocket 경로 허용
                                 .antMatchers("/admin/**").hasRole("ADMIN")
@@ -55,31 +56,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable() // REST API에서는 CSRF를 비활성화하는 경우가 많음
                 .sessionManagement(sessionManagement ->
                         sessionManagement
-                                .sessionFixation().newSession()
-                                .maximumSessions(2)
-                                .expiredUrl("/session-expired")
+                                .sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS) // 세션을 생성하지 않음
                 )
-                .logout(logout ->
-                        logout
-                                .logoutUrl("/logout")
-                                .logoutSuccessHandler((request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK))
-                                .deleteCookies("JSESSIONID")
-                );
+//                .sessionManagement(sessionManagement ->
+//                        sessionManagement
+//                                .sessionFixation().newSession()
+//                                .maximumSessions(2)
+//                                .expiredUrl("/session-expired")
+//                )
+                .addFilterBefore(jwtAuthenticationFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
+
     }
 
     @Bean
     public AuthenticationSuccessHandler successHandler() {
-        return new SimpleUrlAuthenticationSuccessHandler() {
-            @Override
-            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
-                                                org.springframework.security.core.Authentication authentication) throws IOException, ServletException {
-                HttpSession session = request.getSession();
-                session.setAttribute("username", authentication.getName());
-                response.setStatus(HttpServletResponse.SC_OK);
-            }
-        };
+        return new SimpleUrlAuthenticationSuccessHandler();
     }
-
     @Bean
     public AuthenticationFailureHandler failureHandler() {
         return new SimpleUrlAuthenticationFailureHandler();

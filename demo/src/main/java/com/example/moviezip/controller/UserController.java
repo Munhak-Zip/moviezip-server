@@ -41,20 +41,20 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @PostMapping("/loginProc")
-    public ResponseEntity<?> loginProc(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
-        // 인증 로직
-
-        Authentication auth = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
-        );
-
-        SecurityContextHolder.getContext().setAuthentication(auth);
-        HttpSession session = request.getSession(true);
-        session.setAttribute("username", loginDTO.getUsername()); // 사용자 세션에 저장
-
-        return ResponseEntity.ok("Login successful");
-    }
+//    @PostMapping("/loginProc")
+//    public ResponseEntity<?> loginProc(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
+//        // 인증 로직
+//
+//        Authentication auth = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
+//        );
+//
+//        SecurityContextHolder.getContext().setAuthentication(auth);
+//        HttpSession session = request.getSession(true);
+//        session.setAttribute("username", loginDTO.getUsername()); // 사용자 세션에 저장
+//
+//        return ResponseEntity.ok("Login successful");
+//    }
 
     //회원가입
     @PostMapping("/joinProc")
