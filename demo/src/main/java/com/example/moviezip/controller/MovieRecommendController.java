@@ -3,7 +3,9 @@ package com.example.moviezip.controller;
 import com.example.moviezip.domain.Movie;
 import com.example.moviezip.service.MovieImpl;
 import com.example.moviezip.service.recommend.MovieRecommenderService;
+import com.example.moviezip.util.jwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,11 @@ public class MovieRecommendController {
     private MovieImpl movieService;
     private List<String> recommendedMovies; // 추천 영화 저장 변수
     private long lastRecommendationTime; // 마지막 추천 시간 저장 변수
+
+    @Autowired
+    private jwtUtil jwtUtil;
+
+
     @Autowired
     public void setMovieRecommend(MovieRecommenderService recommenderService, MovieImpl movieService) {
         this.recommenderService = recommenderService;
@@ -28,7 +35,12 @@ public class MovieRecommendController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/main/recommend")
-    public List<Movie> recommendMovies(@RequestParam int userId) throws Exception {
+    public List<Movie> recommendMovies(@RequestParam int userId, @RequestHeader("Authorization") String token) throws Exception {
+        String jwt = token.substring(7); // "Bearer " 제거
+
+        // 토큰 검증 및 사용자 정보 추출 (예: JWT에서 userId 추출)
+        Long userIdFromToken = jwtUtil.extractUserId(jwt); // jwtUtil은 JWT 유틸리티 클래스
+        System.out.println("아이디아디아:::: "+ userIdFromToken);
         long currentTime = System.currentTimeMillis();
         // 하루가 지났는지 확인 (24시간 = 86400000 milliseconds)
         if (currentTime - lastRecommendationTime > 86400000) {
