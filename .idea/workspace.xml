@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[add] 테스트 코드 도입 시도" />
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieRecommendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieRecommendController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +33,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="1be1d789-f1f4-4152-8103-fe128d6e8c16" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,7 +72,7 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
-    "last_opened_file_path": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_FE",
+    "last_opened_file_path": "D:/4th_grade/CodingTest/CodingTest",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -277,15 +287,7 @@
       <workItem from="1731723921763" duration="7007000" />
       <workItem from="1734481985975" duration="2014000" />
       <workItem from="1734964017179" duration="3896000" />
-      <workItem from="1735977084248" duration="15109000" />
-    </task>
-    <task id="LOCAL-00086" summary="[feat] 평론가 리뷰 제공 #48">
-      <option name="closed" value="true" />
-      <created>1718800543478</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1718800543478</updated>
+      <workItem from="1735977084248" duration="28982000" />
     </task>
     <task id="LOCAL-00087" summary="[fix/#57] wishmapper.xml &amp; review 도메인 수정">
       <option name="closed" value="true" />
@@ -671,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736063527187</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="[feat] workspace.xml">
+      <option name="closed" value="true" />
+      <created>1736064908899</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1736064908899</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,8 +699,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add ChatRoomRepository #9" />
-    <MESSAGE value="feat: add ChatRoomService #9" />
     <MESSAGE value="feat: add comment to CustomUserDetails #9" />
     <MESSAGE value="feat: add WebSocketConfig #9" />
     <MESSAGE value="feat: add WebSocketHandshakeInterceptor #9" />
@@ -716,7 +724,9 @@
     <MESSAGE value="[add] application.properties jwt 만료시간 등 추가" />
     <MESSAGE value="[fix] session에서 jwt로 변경" />
     <MESSAGE value="[add] 테스트 코드 도입 시도" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] 테스트 코드 도입 시도" />
+    <MESSAGE value="[feat] workspace.xml" />
+    <MESSAGE value="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
