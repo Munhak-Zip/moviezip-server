@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors(withDefaults()) // CORS 설정 활성화
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .antMatchers("/", "/authenticate", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**").permitAll()
+                                .antMatchers("/", "/api/auth/authenticate","/api/auth/refresh", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**").permitAll()
                                 .antMatchers("/getId").authenticated()
                                 .antMatchers("/ws/**", "/topic/**").permitAll() // WebSocket 경로 허용
                                 .antMatchers("/admin/**").hasRole("ADMIN")
@@ -58,12 +58,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         sessionManagement
                                 .sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS) // 세션을 생성하지 않음
                 )
-//                .sessionManagement(sessionManagement ->
-//                        sessionManagement
-//                                .sessionFixation().newSession()
-//                                .maximumSessions(2)
-//                                .expiredUrl("/session-expired")
-//                )
                 .addFilterBefore(jwtAuthenticationFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class);
 
     }
