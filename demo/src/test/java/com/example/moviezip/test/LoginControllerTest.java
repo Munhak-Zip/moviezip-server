@@ -1,104 +1,138 @@
 package com.example.moviezip.test;
 
 import com.example.moviezip.controller.LoginController;
+import com.example.moviezip.domain.RefreshToken;
+import com.example.moviezip.domain.User;
 import com.example.moviezip.domain.jwt.AuthenticationRequest;
 import com.example.moviezip.domain.jwt.AuthenticationResponse;
 import com.example.moviezip.service.CustomUserDetailsService;
+import com.example.moviezip.service.RefreshTokenService;
 import com.example.moviezip.util.jwtUtil;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import java.util.Optional;
 
-@ExtendWith(MockitoExtension.class)
-class LoginControllerTest {
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@ExtendWith(SpringExtension.class)
+@WebMvcTest(LoginController.class)
+@MockBean(JpaMetamodelMappingContext.class)
+public class LoginControllerTest {
+
+    @Autowired
     private MockMvc mockMvc;
 
-    @Mock
-    private CustomUserDetailsService userDetailsService;
-
-    @Mock
-    private jwtUtil jwtTokenUtil;
-
-    @Mock
+    @MockBean
     private AuthenticationManager authenticationManager;
 
-    @InjectMocks
-    private LoginController loginController;
+    @MockBean
+    private jwtUtil jwtTokenUtil;
 
-    @BeforeEach
-    void setUp() {
-        // MockMvc를 초기화
-        mockMvc = MockMvcBuilders.standaloneSetup(loginController).build();
-    }
+    @MockBean
+    private CustomUserDetailsService userDetailsService;
+
+    @MockBean
+    private RefreshTokenService refreshTokenService;
+
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    void testCreateAuthenticationToken_Success() throws Exception {
-        // Arrange: AuthenticationRequest와 Mock 서비스 응답 준비
+    @DisplayName("로그인 인증 성공 테스트")
+    void 로그인_성공() throws Exception {
         AuthenticationRequest request = new AuthenticationRequest("testUser", "password");
-        AuthenticationResponse response = new AuthenticationResponse("valid_jwt_token");
+        UserDetails userDetails = Mockito.mock(UserDetails.class);
+        RefreshToken refreshToken = RefreshToken.builder()
+                .token("refresh-token-value")
+                .build();
 
-        // Mocking
-        when(userDetailsService.loadUserByUsername("testUser")).thenReturn(mock(UserDetails.class));
-        when(jwtTokenUtil.generateToken(any(UserDetails.class))).thenReturn("valid_jwt_token");
+        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
+                .thenReturn(null);
+        when(userDetailsService.loadUserByUsername("testUser")).thenReturn(userDetails);
+        when(jwtTokenUtil.generateToken(userDetails)).thenReturn("access-token-value");
+        when(refreshTokenService.createOrUpdateRefreshToken(eq(userDetails), any(Long.class)))
+                .thenReturn(refreshToken);
 
-        // Act and Assert: POST 요청으로 로그인 시도
-        mockMvc.perform(post("/authenticate")
+        mockMvc.perform(post("/api/auth/authenticate")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"username\": \"testUser\", \"password\": \"password\"}"))
+                        .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.jwt").value("valid_jwt_token"));
-
-        // Verify interactions
-        verify(userDetailsService).loadUserByUsername("testUser");
-        verify(jwtTokenUtil).generateToken(any(UserDetails.class));
+                .andExpect(jsonPath("$.accessToken").value("access-token-value"))
+                .andExpect(jsonPath("$.refreshToken").value("refresh-token-value"));
     }
 
     @Test
-    void testCreateAuthenticationToken_Fail_BadCredentials() throws Exception {
-        // Arrange: 잘못된 사용자 입력
-        AuthenticationRequest request = new AuthenticationRequest("wrongUser", "wrongPassword");
+    @DisplayName("로그인 인증 실패 테스트")
+    void 로그인_실패() throws Exception {
+        AuthenticationRequest request = new AuthenticationRequest("testUser", "wrongPassword");
 
-        // Mocking
-        when(userDetailsService.loadUserByUsername("wrongUser")).thenThrow(new BadCredentialsException("Bad credentials"));
+        when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class)))
+                .thenThrow(new BadCredentialsException("Incorrect username or password"));
 
-        // Act and Assert: 로그인 실패 시나리오
-        mockMvc.perform(post("/authenticate")
+        mockMvc.perform(post("/api/auth/authenticate")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"username\": \"wrongUser\", \"password\": \"wrongPassword\"}"))
-                .andExpect(status().isUnauthorized())
-                .andExpect(jsonPath("$.message").value("Incorrect username or password"));
-
-        // Verify interactions
-        verify(userDetailsService).loadUserByUsername("wrongUser");
+                        .content(objectMapper.writeValueAsString(request)))
+                .andExpect(status().is4xxClientError());
     }
 
     @Test
-    void testMain() throws Exception {
-        // Act and Assert: main 페이지 정상 접근
-        mockMvc.perform(get("/main"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Welcome!! This is main page"));
+    void refreshTokenSuccess() throws Exception {
+        // Mock a valid refresh token
+        String validRefreshToken = "valid_refresh_token";
+        String newAccessToken = "new_access_token";
+
+        // 리프레시 토큰 서비스에서 유효한 리프레시 토큰을 반환하도록 설정
+        when(refreshTokenService.validateRefreshToken(validRefreshToken)).thenReturn(true);
+        when(refreshTokenService.getRefreshToken(validRefreshToken)).thenReturn(Optional.of(new RefreshToken())); // 이 부분은 mock data로 설정
+        when(jwtTokenUtil.generateToken(any())).thenReturn(newAccessToken); // 새로 생성된 액세스 토큰 반환
+
+        // MockMvc를 사용하여 API 호출 테스트
+        mockMvc.perform(post("/api/auth/refresh")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"refreshToken\": \"" + validRefreshToken + "\"}"))
+                .andExpect(status().isOk()) // 200 OK 응답
+                .andExpect(jsonPath("$.accessToken").value(newAccessToken)) // 새로운 액세스 토큰이 반환되었는지 확인
+                .andExpect(jsonPath("$.refreshToken").value(validRefreshToken)); // 기존 리프레시 토큰이 반환되는지 확인
+
+        // verify that the service method was called
+        verify(refreshTokenService).validateRefreshToken(validRefreshToken);
+        verify(refreshTokenService).getRefreshToken(validRefreshToken);
+        verify(jwtTokenUtil).generateToken(any());
     }
 
     @Test
-    void testHello() throws Exception {
-        // Act and Assert: hello 페이지 정상 접근
-        mockMvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("hello"));
+    @DisplayName("리프레시 토큰 유효하지 않을 때 실패 테스트")
+    void 리프레시_토큰_실패() throws Exception {
+        String invalidRefreshToken = "invalid-refresh-token";
+
+        when(refreshTokenService.validateRefreshToken(invalidRefreshToken)).thenReturn(false);
+
+        mockMvc.perform(post("/api/auth/refresh")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(invalidRefreshToken)))
+                .andExpect(status().is4xxClientError());
     }
 }

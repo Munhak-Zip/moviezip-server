@@ -5,9 +5,11 @@ import lombok.Getter;
 @Getter
 public class AuthenticationResponse{
 
-    private final String jwt;
+    private String accessToken;
+    private String refreshToken;
 
-    public AuthenticationResponse(String jwt) {
-        this.jwt = jwt;
+    public AuthenticationResponse(String accessToken, String refreshToken) {
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
     }
 }

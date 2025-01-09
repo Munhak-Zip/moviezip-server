@@ -4,13 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가">
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="refact: [feat] 그 외">
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/RefreshToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/repository/RefreshTokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/RefreshTokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/CustomException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/ExceptionStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieRecommendController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/MovieRecommendController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/jwt/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/jwt/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/LoginControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +81,7 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
-    "last_opened_file_path": "D:/4th_grade/CodingTest/CodingTest",
+    "last_opened_file_path": "D:/4th_grade/Like_Lion_2/GanziThon/13_GANZI_BE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,6 +117,69 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.MoviezipApplication">
+    <configuration name="LoginControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.LoginControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest.로그인_성공" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.LoginControllerTest" />
+      <option name="METHOD_NAME" value="로그인_성공" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest.리프레시_토큰_성공" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.LoginControllerTest" />
+      <option name="METHOD_NAME" value="리프레시_토큰_성공" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginControllerTest.refreshTokenSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.moviezip.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
+      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.LoginControllerTest" />
+      <option name="METHOD_NAME" value="refreshTokenSuccess" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginControllerTest.testCreateAuthenticationToken_Success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -124,38 +196,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceImplTest.회원가입성공" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="회원가입성공" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.필드수부족_회원가입실패" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="필드수부족_회원가입실패" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserServiceImplTest.비밀번호부재_회원가입실패" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -167,22 +207,6 @@
       <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
       <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.UserServiceImplTest" />
       <option name="METHOD_NAME" value="비밀번호부재_회원가입실패" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceImplTest.testJoinProcess_ValidInput_ShouldReturnOk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.moviezip.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.moviezip.test" />
-      <option name="MAIN_CLASS_NAME" value="com.example.moviezip.test.UserServiceImplTest" />
-      <option name="METHOD_NAME" value="testJoinProcess_ValidInput_ShouldReturnOk" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -221,20 +245,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.LoginControllerTest.refreshTokenSuccess" />
+      <item itemvalue="JUnit.LoginControllerTest.로그인_성공" />
+      <item itemvalue="JUnit.LoginControllerTest.리프레시_토큰_성공" />
+      <item itemvalue="JUnit.LoginControllerTest" />
       <item itemvalue="JUnit.LoginControllerTest.testCreateAuthenticationToken_Success" />
-      <item itemvalue="JUnit.UserServiceImplTest.testJoinProcess_ValidInput_ShouldReturnOk" />
-      <item itemvalue="JUnit.UserServiceImplTest.비밀번호부재_회원가입실패" />
-      <item itemvalue="JUnit.UserServiceImplTest.필드수부족_회원가입실패" />
-      <item itemvalue="JUnit.UserServiceImplTest.회원가입성공" />
       <item itemvalue="Spring Boot.MoviezipApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginControllerTest.refreshTokenSuccess" />
+        <item itemvalue="JUnit.LoginControllerTest.리프레시_토큰_성공" />
+        <item itemvalue="JUnit.LoginControllerTest.로그인_성공" />
         <item itemvalue="JUnit.LoginControllerTest.testCreateAuthenticationToken_Success" />
-        <item itemvalue="JUnit.UserServiceImplTest.회원가입성공" />
-        <item itemvalue="JUnit.UserServiceImplTest.비밀번호부재_회원가입실패" />
-        <item itemvalue="JUnit.UserServiceImplTest.필드수부족_회원가입실패" />
-        <item itemvalue="JUnit.UserServiceImplTest.testJoinProcess_ValidInput_ShouldReturnOk" />
+        <item itemvalue="JUnit.LoginControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -287,39 +311,9 @@
       <workItem from="1731723921763" duration="7007000" />
       <workItem from="1734481985975" duration="2014000" />
       <workItem from="1734964017179" duration="3896000" />
-      <workItem from="1735977084248" duration="28982000" />
-    </task>
-    <task id="LOCAL-00087" summary="[fix/#57] wishmapper.xml &amp; review 도메인 수정">
-      <option name="closed" value="true" />
-      <created>1718867919227</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1718867919227</updated>
-    </task>
-    <task id="LOCAL-00088" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940188917</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940188917</updated>
-    </task>
-    <task id="LOCAL-00089" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940192626</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940192626</updated>
-    </task>
-    <task id="LOCAL-00090" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940195670</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940195670</updated>
+      <workItem from="1735977084248" duration="30034000" />
+      <workItem from="1736323502783" duration="5390000" />
+      <workItem from="1736329006550" duration="24634000" />
     </task>
     <task id="LOCAL-00091" summary="[feat] 마이페이지">
       <option name="closed" value="true" />
@@ -681,7 +675,39 @@
       <option name="project" value="LOCAL" />
       <updated>1736064908899</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가">
+      <option name="closed" value="true" />
+      <created>1736245653425</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1736245653425</updated>
+    </task>
+    <task id="LOCAL-00137" summary="refact: [fix] jwt 인증 컨트롤러 수정">
+      <option name="closed" value="true" />
+      <created>1736245708538</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1736245708538</updated>
+    </task>
+    <task id="LOCAL-00138" summary="refact: [fix] jwt 인증 컨트롤러 수정">
+      <option name="closed" value="true" />
+      <created>1736245751094</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1736245751094</updated>
+    </task>
+    <task id="LOCAL-00139" summary="refact: [feat] 그 외">
+      <option name="closed" value="true" />
+      <created>1736245767471</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1736245767471</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -699,9 +725,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add comment to CustomUserDetails #9" />
-    <MESSAGE value="feat: add WebSocketConfig #9" />
-    <MESSAGE value="feat: add WebSocketHandshakeInterceptor #9" />
     <MESSAGE value="feat: add WebConfig #9" />
     <MESSAGE value="feat: add MongoConfig #9" />
     <MESSAGE value="feat: add get adminId #9" />
@@ -726,7 +749,9 @@
     <MESSAGE value="[add] 테스트 코드 도입 시도" />
     <MESSAGE value="[feat] workspace.xml" />
     <MESSAGE value="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가" />
+    <MESSAGE value="refact: [fix] jwt 인증 컨트롤러 수정" />
+    <MESSAGE value="refact: [feat] 그 외" />
+    <option name="LAST_COMMIT_MESSAGE" value="refact: [feat] 그 외" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
