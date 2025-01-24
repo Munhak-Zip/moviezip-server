@@ -26,8 +26,10 @@
 
 ## 🧱 ERD
 <p align="center">
-  <img src="https://github.com/Munhak-Zip/Moviezip_Back/assets/110006845/9db79464-343c-4768-a839-533dbbb3fa6f">
+  <img src="https://github.com/user-attachments/assets/a3cc4810-ff4c-48a0-b5f1-60f983a3b757">
 </p>
+
+
 <br>
 
 ## 🛠️ Tech Stack
