@@ -42,7 +42,6 @@ public class ChatRoomController {
         Long userId = jwtUtil.extractUserId(jwt);
         List<String> roles = jwtUtil.extractRoles(jwt);
 
-        System.out.println("roles = " + roles);
         List<ChatRoom> chatRooms;
         if (roles.contains("ROLE_ADMIN")) {  // 관리자인지 확인
             chatRooms = chatRoomService.getAllChatRooms();

@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="refact: [feat] accessToken 재발급 기능 완료">
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[issue] 권한 추출 이슈 해결">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,15 +307,7 @@
       <workItem from="1737113395778" duration="729000" />
       <workItem from="1737166373162" duration="7743000" />
       <workItem from="1737174189775" duration="21971000" />
-      <workItem from="1737535351078" duration="32530000" />
-    </task>
-    <task id="LOCAL-00095" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940215209</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940215209</updated>
+      <workItem from="1737535351078" duration="33227000" />
     </task>
     <task id="LOCAL-00096" summary="[feat] 마이페이지 비번 확인">
       <option name="closed" value="true" />
@@ -703,7 +693,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738144628377</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="[issue] 권한 추출 이슈 해결">
+      <option name="closed" value="true" />
+      <created>1738146099877</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1738146099877</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -721,7 +719,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: fix SessionController #9" />
     <MESSAGE value="feat: add Role Enum #9" />
     <MESSAGE value="feat: add AdminController #9" />
     <MESSAGE value="[feat] dataSources" />
@@ -746,7 +743,8 @@
     <MESSAGE value="refact: [feat] 커스텀에러 처리 추가" />
     <MESSAGE value="refact: [feat] 그 외" />
     <MESSAGE value="refact: [feat] accessToken 재발급 기능 완료" />
-    <option name="LAST_COMMIT_MESSAGE" value="refact: [feat] accessToken 재발급 기능 완료" />
+    <MESSAGE value="[issue] 권한 추출 이슈 해결" />
+    <option name="LAST_COMMIT_MESSAGE" value="[issue] 권한 추출 이슈 해결" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

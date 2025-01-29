@@ -30,20 +30,10 @@ public class ChatMessageController {
         return ResponseEntity.ok(messages);
     }
 
-    // WebSocket 메시지 처리
-//    @MessageMapping("/send/message")
-//    @SendTo("/topic/chat")
-//    public ChatMessage sendMessage(ChatMessage message, Principal principal) {
-//        message.setSender(principal.getName());
-//        chatMessageService.saveMessage(message);
-//        return message;
-//    }
-
     @MessageMapping("/send/message")
     @SendTo("/topic/chat")
     public ChatMessage sendMessage(ChatMessage message, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
         if (customUserDetails != null) {
-//            User user = customUserDetails.getUser2();
             log.info("customUserDetails.. = " + customUserDetails.getAuthorities());
             message.setSender(message.getSender());
             message.setChatRoomId(message.getChatRoomId());
