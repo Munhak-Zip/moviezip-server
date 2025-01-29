@@ -68,7 +68,6 @@ public class LoginController {
         RefreshToken refreshToken = refreshTokenService.createOrUpdateRefreshToken(userDetails, refreshTokenExpirationTime, response);
 
         // Refresh Token을 HttpOnly 쿠키에 저장
-//        HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
         Cookie cookie = new Cookie("refreshToken", refreshToken.getToken());
         cookie.setHttpOnly(true);    // JavaScript에서 접근 불가
         cookie.setSecure(false);      // HTTPS 환경에서만 전송되도록 설정 (필요한 경우)
@@ -108,7 +107,7 @@ public class LoginController {
 
         refreshTokenService.createOrUpdateRefreshToken(userDetails, refreshTokenExpirationTime, response);
 
-// access token을 JSON 응답으로 반환
+        // access token을 JSON 응답으로 반환
         return ResponseEntity.ok(new AuthenticationResponse(newAccessToken));
 
     }
