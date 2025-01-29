@@ -18,6 +18,10 @@ import java.util.List;
 
 public class CustomUserDetails implements UserDetails {
     private final User user;
+    // 기본 생성자 추가
+    public CustomUserDetails() {
+        this.user = new User(); // 기본 User 객체 생성
+    }
 
     public CustomUserDetails(User user) {
         this.user = user;

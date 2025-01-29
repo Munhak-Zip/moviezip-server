@@ -1,48 +1,55 @@
 package com.example.moviezip.controller;
 
+import com.example.moviezip.domain.CustomUserDetails;
 import com.example.moviezip.domain.RefreshToken;
-import com.example.moviezip.domain.User;
 import com.example.moviezip.domain.jwt.AuthenticationRequest;
 import com.example.moviezip.domain.jwt.AuthenticationResponse;
 import com.example.moviezip.service.CustomUserDetailsService;
 import com.example.moviezip.service.RefreshTokenService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import com.example.moviezip.util.jwtUtil;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.util.Optional;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+
+@Slf4j
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class LoginController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    private jwtUtil jwtTokenUtil;
-
-    @Autowired
-    private CustomUserDetailsService userDetailsService;
-
+    private final AuthenticationManager authenticationManager;
+    private final jwtUtil jwtTokenUtil;
+    private final CustomUserDetailsService userDetailsService;
+    private final RefreshTokenService refreshTokenService;
     @Value("${token.refresh-token-expire-time}")
     private long refreshTokenExpirationTime;
-
-    private final RefreshTokenService refreshTokenService;
+    private final CustomUserDetailsService customUserDetailsService;
 
 
     //사용자의 id,pw를 검증
     //jwtUtil을 호출해 Token을 생성하고 JwtResponse에 Token을 담아 return ResponseEntity
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest,
+                                                       HttpServletResponse response) throws Exception {
+
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -58,43 +65,51 @@ public class LoginController {
                 .loadUserByUsername(authenticationRequest.getUsername());
         final String accessToken = jwtTokenUtil.generateToken(userDetails);
 
+        RefreshToken refreshToken = refreshTokenService.createOrUpdateRefreshToken(userDetails, refreshTokenExpirationTime, response);
 
-        RefreshToken refreshToken = refreshTokenService.createOrUpdateRefreshToken(userDetails, refreshTokenExpirationTime);
+        // Refresh Token을 HttpOnly 쿠키에 저장
+//        HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getResponse();
+        Cookie cookie = new Cookie("refreshToken", refreshToken.getToken());
+        cookie.setHttpOnly(true);    // JavaScript에서 접근 불가
+        cookie.setSecure(false);      // HTTPS 환경에서만 전송되도록 설정 (필요한 경우)
+        cookie.setPath("/");         // 모든 경로에서 사용 가능하도록 설정
+        cookie.setMaxAge((int) refreshTokenExpirationTime);  // 유효 기간 설정
+        response.addCookie(cookie);
+        log.info("쿠키 설정: refreshToken={}, MaxAge={}", refreshToken.getToken(), refreshTokenExpirationTime);
 
-
-        return ResponseEntity.ok(new AuthenticationResponse(accessToken,refreshToken.getToken()));
+        // accessToken은 JSON 응답으로 보내고
+        return ResponseEntity.ok(new AuthenticationResponse(accessToken));
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<?> refreshAccessToken(@RequestHeader("Authorization") String refreshToken) throws Exception {
+    public ResponseEntity<?> refreshAccessToken(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String refreshToken = null;
 
-        String refresh = refreshToken.trim();
-
-        // Check if the token starts with "Bearer " and remove it
-        if (refresh.startsWith("Bearer ")) {
-            refresh = refreshToken.substring(7); // Remove the "Bearer " prefix
-        }
-        // refresh token 유효성 검사
-        if (!refreshTokenService.validateRefreshToken(refresh)) {
-            throw new Exception("유효하지 않은 refresh token입니다.");
-        }
-
-        // 데이터베이스에서 해당 refresh token을 가져옴
-        Optional<RefreshToken> refreshTokenOptional = refreshTokenService.getRefreshToken(refresh);
-        if (refreshTokenOptional.isEmpty()) {
-            throw new Exception("Refresh token not found");
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if ("refreshToken".equals(cookie.getName())) {
+                    refreshToken = cookie.getValue();
+                    break;
+                }
+            }
         }
 
+        // refreshToken이 없으면 예외 처리
+        if (refreshToken == null) {
+            throw new Exception("Refresh token이 없습니다.");
+        }
+        log.info("Received refresh token: " + refreshToken);
 
-        String newAccessToken = jwtTokenUtil.refreshAccessToken(refresh);
-//        // refresh token과 연관된 사용자 정보 가져오기
-//        User user = refreshTokenOptional.get().getUser();
-//
-//        // 새로운 JWT (Access token) 생성
-//        UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUserId());
-//        String newAccessToken = jwtTokenUtil.generateToken(userDetails);
+        // 후속 과정으로 유효성 검사 등 계속 진행...
+        // refreshToken이 유효하면 새로운 access token 발급
+        String newAccessToken = jwtTokenUtil.refreshAccessToken(refreshToken);
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        // 새로 생성된 access token 반환
-        return ResponseEntity.ok(new AuthenticationResponse(newAccessToken, refresh));
+        refreshTokenService.createOrUpdateRefreshToken(userDetails, refreshTokenExpirationTime, response);
+
+// access token을 JSON 응답으로 반환
+        return ResponseEntity.ok(new AuthenticationResponse(newAccessToken));
+
     }
 }

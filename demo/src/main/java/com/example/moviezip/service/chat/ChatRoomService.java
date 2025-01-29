@@ -19,12 +19,7 @@ public class ChatRoomService {
     private final MybatisUserDao mybatisUserDao;
     //채팅방 생성
     public ChatRoom createRoom(Long adminId, Long userId) {
-
-        User admin = mybatisUserDao.getUserById2(adminId); // admin 정보를 MybatisUserDao로 가져옴
-        User user = mybatisUserDao.getUserById2(userId); // user 정보를 MybatisUserDao로 가져옴
-        log.info("admin: "+ admin);
-        log.info("user: "+ user);
-        ChatRoom chatRoom = new ChatRoom(admin, user);
+        ChatRoom chatRoom = new ChatRoom(adminId, userId);
         chatRoomRepository.save(chatRoom);
         return chatRoom;
     }

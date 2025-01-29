@@ -1,16 +1,14 @@
 package com.example.moviezip.domain.chat;
 
-import com.esotericsoftware.kryo.NotNull;
 import com.example.moviezip.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,24 +22,18 @@ public class ChatRoom {
 
     private String roomName;
 
-    @NotNull
-    @ManyToOne
-    private User admin; // 관리자로 설정된 사용자
+    private Long adminId; // 관리자 ID (User 객체 대신)
+    private Long userId;  // 일반 사용자 ID (User 객체 대신)
 
-    @NotNull
-    @ManyToOne
-    private User user; // 일반 사용자들
+    private List<String> messageIds; // 메시지 ID 리스트 (OneToMany 대신 ID 참조)
 
-    @OneToMany(mappedBy = "chatRoom", cascade = CascadeType.ALL)
-    private List<ChatMessage> messages = new ArrayList<>(); // 채팅 메시지들
-
-    // userId를 받는 생성자 추가
-    public ChatRoom(User admin, User user) {
-        this.admin = admin;
-        this.user = user;
+    // 생성자
+    public ChatRoom(Long adminId, Long userId) {
+        this.adminId = adminId;
+        this.userId = userId;
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = currentDate.format(formatter);
-        this.roomName = "ChatRoom between " + admin.getNickname() + " and " + user.getNickname() + " on " + formattedDate;
+        this.roomName = "ChatRoom between " + adminId + " and " + userId + " on " + formattedDate;
     }
 }

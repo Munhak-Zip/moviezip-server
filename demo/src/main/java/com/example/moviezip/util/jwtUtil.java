@@ -1,36 +1,30 @@
 package com.example.moviezip.util;
 
 import com.example.moviezip.domain.CustomUserDetails;
-import com.example.moviezip.domain.RefreshToken;
-import com.example.moviezip.repository.RefreshTokenRepository;
 import com.example.moviezip.service.CustomUserDetailsService;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
 import java.util.function.Function;
 
+@Slf4j
 @Component
 public class jwtUtil {
     @Value("${jwt.secret}")
     private String SECRET_KEY;
-
     @Value("${token.access-token-expire-time}")
     private long ACCESS_TOKEN_EXPIRATION;
-
     @Value("${token.refresh-token-expire-time}")
     private long REFRESH_TOKEN_EXPIRATION;
-
-    @Autowired
-    private RefreshTokenRepository refreshTokenRepository;
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
@@ -58,6 +52,16 @@ public class jwtUtil {
         return claims.get("userId", Long.class); // userId 추출 (Long 타입)
     }
 
+    //JWT에서 roles 추출
+//    public String extractRoles(String token){
+//        Claims claims = extractAllClaims(token);  //JWT에서 모든 claims가져오기
+//        return claims.get("roles", String.class); //roles 추출(String 타입)
+//    }
+    public List<String> extractRoles(String token) {
+        Claims claims = extractAllClaims(token);  // JWT에서 모든 claims 가져오기
+        return (List<String>) claims.get("roles");  // roles 추출 (List<String>)
+    }
+
     private Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());
     }
@@ -68,6 +72,7 @@ public class jwtUtil {
         CustomUserDetails customUser = (CustomUserDetails) userDetails;
         Map<String, Object> claims = new HashMap<>();
         claims.put("userId", customUser.getUser());
+
         claims.put("roles", customUser.getAuthorities());
         return createToken(claims, userDetails.getUsername());
     }
@@ -94,15 +99,32 @@ public class jwtUtil {
                 .compact();
     }
 
+    // refreshToken을 발급받은 후, 쿠키에 저장하는 코드
+    public void setRefreshTokenInCookie(String refreshToken, HttpServletResponse response) {
+
+        // Refresh Token을 HttpOnly 쿠키에 저장
+        Cookie cookie = new Cookie("refreshToken", refreshToken);
+        cookie.setHttpOnly(true);    // JavaScript에서 접근 불가
+        cookie.setSecure(false);      // HTTPS 환경에서만 전송되도록 설정 (필요한 경우)
+        cookie.setPath("/");         // 모든 경로에서 사용 가능하도록 설정
+        cookie.setMaxAge((int) REFRESH_TOKEN_EXPIRATION);  // 유효 기간 설정
+
+        response.addCookie(cookie);     // 응답에 쿠키 추가
+        System.out.println("쿠키에 refreshToken 설정: " + refreshToken);
+    }
+
     //refreshToken 검증 및 AccessToken발급
     public String refreshAccessToken(String refreshToken) {
-        System.out.println("뭐야:"+ refreshToken);
-
+        log.info("refreshToken:" + refreshToken);
+        // refreshToken 유효성 검증
+        if (!validateRefreshToken(refreshToken)) {
+            throw new CustomException(ExceptionStatus.INVALID_TOKEN);  // 유효하지 않은 토큰인 경우 예외 던짐
+        }
         //클레임 추출
         Claims claims = extractAllClaims(refreshToken);
 
         //refreshToken의 발행 일자가 현재보다 이후라면?
-        if(claims.getIssuedAt().after(new Date())){
+        if (claims.getIssuedAt().after(new Date())) {
             throw new CustomException(ExceptionStatus.PREMATURE_TOKEN);
         }
 
@@ -115,13 +137,22 @@ public class jwtUtil {
         String username = extractUsername(refreshToken);
 
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
-
-        System.out.println("UserDetails loaded: " + userDetails.getUsername()); // Log loaded user details
-
         return generateToken(userDetails); // 새로운 AccessToken 발급
 
     }
 
+    public boolean validateRefreshToken(String refreshToken) {
+        // 유효성 검사: JWT가 유효한지, 만료되지 않았는지 등
+        try {
+            Jwts.parserBuilder()
+                    .setSigningKey(SECRET_KEY)  // JWT 서명 키
+                    .build()
+                    .parseClaimsJws(refreshToken);
+            return true;
+        } catch (JwtException | IllegalArgumentException e) {
+            return false;
+        }
+    }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);

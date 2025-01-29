@@ -18,6 +18,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
@@ -44,16 +47,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .cors(withDefaults()) // CORS 설정 활성화
+                .cors(withDefaults()) // CORS 설정 적용
+                .csrf().disable()
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .antMatchers("/", "/api/auth/authenticate","/api/auth/refresh", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**").permitAll()
+                                .antMatchers("/", "/api/auth/authenticate","/api/auth/refresh", "/joinProc", "/session-expired", "/findUserId", "/checkExistsId", "/changePassword", "/ws/**", "/chat/**","/mypage/user").permitAll()
                                 .antMatchers("/getId").authenticated()
                                 .antMatchers("/ws/**", "/topic/**").permitAll() // WebSocket 경로 허용
                                 .antMatchers("/admin/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
                 )
-                .csrf().disable() // REST API에서는 CSRF를 비활성화하는 경우가 많음
                 .sessionManagement(sessionManagement ->
                         sessionManagement
                                 .sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.STATELESS) // 세션을 생성하지 않음
@@ -74,14 +77,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:3000");
-        configuration.addAllowedMethod("*");
-        configuration.addAllowedHeader("*");
+        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
+
 
     @Bean
     @Override

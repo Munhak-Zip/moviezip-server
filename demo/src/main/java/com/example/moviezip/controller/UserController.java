@@ -4,6 +4,7 @@ package com.example.moviezip.controller;
 import com.example.moviezip.domain.*;
 import com.example.moviezip.service.CustomUserDetailsService;
 import com.example.moviezip.service.UserServiceImpl;
+import com.example.moviezip.util.jwtUtil;
 import org.apache.catalina.Authenticator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,21 +41,8 @@ public class UserController {
     private HttpSession httpSession; // HttpSession 주입
     @Autowired
     private AuthenticationManager authenticationManager;
-
-//    @PostMapping("/loginProc")
-//    public ResponseEntity<?> loginProc(@RequestBody LoginDTO loginDTO, HttpServletRequest request) {
-//        // 인증 로직
-//
-//        Authentication auth = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword())
-//        );
-//
-//        SecurityContextHolder.getContext().setAuthentication(auth);
-//        HttpSession session = request.getSession(true);
-//        session.setAttribute("username", loginDTO.getUsername()); // 사용자 세션에 저장
-//
-//        return ResponseEntity.ok("Login successful");
-//    }
+    @Autowired
+    private jwtUtil jwtUtil;
 
     //회원가입
     @PostMapping("/joinProc")
@@ -157,11 +145,26 @@ public class UserController {
         return userService.findInterest(id);
     }
 
+//    @CrossOrigin(origins = "http://localhost:3000")
+//    @GetMapping("/mypage/user")
+//    public User findMypageUser(@RequestParam long userId) {
+//        System.out.println("마이페이지 사용자"+userId);
+//        User u = userService.getUserById2(userId);
+//        System.out.println("사용자"+ u.getUserId());
+//        return u;
+//    }
+
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/mypage/user")
-    public User findMypageUser(@RequestParam long userId) {
-        System.out.println("마이페이지 사용자"+userId);
-        User u = userService.getUserById2(userId);
+    public User findMypageUser( @RequestHeader("Authorization") String token) {
+        System.out.println("Received token: " + token);
+        String jwt = token.substring(7); // "Bearer " 제거
+
+        // 토큰 검증 및 사용자 정보 추출 (예: JWT에서 userId 추출)
+        Long userIdFromToken = jwtUtil.extractUserId(jwt); // jwtUtil은 JWT 유틸리티 클래스
+
+        System.out.println("마이페이지 사용자"+userIdFromToken);
+        User u = userService.getUserById2(userIdFromToken);
         System.out.println("사용자"+ u.getUserId());
         return u;
     }

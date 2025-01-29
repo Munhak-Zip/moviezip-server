@@ -27,7 +27,7 @@
                  ORDER BY
                      MOVIE_OPENDATE DESC
              )
-        WHERE ROWNUM <= 5
+        WHERE ROWNUM <= 6
         ]]>
     </select>
 

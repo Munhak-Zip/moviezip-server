@@ -5,20 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="refact: [feat] 그 외">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/RefreshToken.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/repository/RefreshTokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/RefreshTokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/ExceptionStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LogoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/FilterChannelInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/MoviezipApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/MoviezipApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/configs/WebSocketHandshakeInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/AuthCheckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/AuthCheckController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatMessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/controller/chat/ChatRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mongo/chat/ChatRoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/dao/mongo/chat/ChatRoomRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/CustomUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/chat/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/chat/ChatMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/chat/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/chat/ChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/jwt/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/domain/jwt/AuthenticationResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/RefreshTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/RefreshTokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/chat/ChatRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/chat/ChatRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/recommend/MovieRecommenderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/service/recommend/MovieRecommenderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/test/Test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/MovieMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/com/example/moviezip/dao/mybatis/mapper/MovieMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/LoginControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/moviezip/test/LoginControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -245,6 +259,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.UserServiceImplTest.비밀번호부재_회원가입실패" />
       <item itemvalue="JUnit.LoginControllerTest.refreshTokenSuccess" />
       <item itemvalue="JUnit.LoginControllerTest.로그인_성공" />
       <item itemvalue="JUnit.LoginControllerTest.리프레시_토큰_성공" />
@@ -313,31 +328,14 @@
       <workItem from="1734964017179" duration="3896000" />
       <workItem from="1735977084248" duration="30034000" />
       <workItem from="1736323502783" duration="5390000" />
-      <workItem from="1736329006550" duration="24634000" />
-    </task>
-    <task id="LOCAL-00091" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940199822</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940199822</updated>
-    </task>
-    <task id="LOCAL-00092" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940203091</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940203091</updated>
-    </task>
-    <task id="LOCAL-00093" summary="[feat] 마이페이지">
-      <option name="closed" value="true" />
-      <created>1718940207112</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1718940207112</updated>
+      <workItem from="1736329006550" duration="33937000" />
+      <workItem from="1736503094242" duration="18911000" />
+      <workItem from="1736727798012" duration="19688000" />
+      <workItem from="1737074078447" duration="1248000" />
+      <workItem from="1737113395778" duration="729000" />
+      <workItem from="1737166373162" duration="7743000" />
+      <workItem from="1737174189775" duration="21971000" />
+      <workItem from="1737535351078" duration="30918000" />
     </task>
     <task id="LOCAL-00094" summary="[feat] 마이페이지">
       <option name="closed" value="true" />
@@ -707,7 +705,31 @@
       <option name="project" value="LOCAL" />
       <updated>1736245767471</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="refact: [feat] refreshToken사용해서 accessToken 재발급 기능 추가">
+      <option name="closed" value="true" />
+      <created>1736412650364</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1736412650365</updated>
+    </task>
+    <task id="LOCAL-00141" summary="refact: [feat] 커스텀에러 처리 추가">
+      <option name="closed" value="true" />
+      <created>1736412677375</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1736412677375</updated>
+    </task>
+    <task id="LOCAL-00142" summary="refact: [feat] 그 외">
+      <option name="closed" value="true" />
+      <created>1736412687207</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1736412687207</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,9 +747,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add WebConfig #9" />
-    <MESSAGE value="feat: add MongoConfig #9" />
-    <MESSAGE value="feat: add get adminId #9" />
     <MESSAGE value="feat: fix SecurityConfig #9" />
     <MESSAGE value="feat: fix SessionController #9" />
     <MESSAGE value="feat: add Role Enum #9" />
@@ -750,6 +769,8 @@
     <MESSAGE value="[feat] workspace.xml" />
     <MESSAGE value="refact: [add] 토큰에 userId와 roles 클레임 추가 및 JWT에서 userId 추출하는 메서드 추가" />
     <MESSAGE value="refact: [fix] jwt 인증 컨트롤러 수정" />
+    <MESSAGE value="refact: [feat] refreshToken사용해서 accessToken 재발급 기능 추가" />
+    <MESSAGE value="refact: [feat] 커스텀에러 처리 추가" />
     <MESSAGE value="refact: [feat] 그 외" />
     <option name="LAST_COMMIT_MESSAGE" value="refact: [feat] 그 외" />
   </component>

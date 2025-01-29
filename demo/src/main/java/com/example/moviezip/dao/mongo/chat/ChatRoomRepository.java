@@ -14,8 +14,6 @@ import java.util.Optional;
 @Repository
 @EnableMongoRepositories
 public interface ChatRoomRepository extends MongoRepository<ChatRoom, String> {
-    // 추가적인 쿼리 메소드를 정의할 수 있습니다.
-
     // 사용자의 ID로 채팅방을 찾는 메소드
     List<ChatRoom> findByUserId(Long userId); // 쿼리 메소드 사용
 

@@ -21,7 +21,7 @@
       <load-sources>user_and_system_sources</load-sources>
     </data-source>
     <data-source name="movieZip@localhost" uuid="b20b8ef8-314d-4490-b785-2b571dd49b7c">
-      <database-info product="Mongo DB" version="8.0.0" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="8.0.0" exact-driver-version="1.18" />
+      <database-info product="Mongo DB" version="8.0.0" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.20" dbms="MONGO" exact-version="8.0.0" exact-driver-version="1.20" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <user-name>moviezip</user-name>
@@ -30,11 +30,6 @@
           <node kind="schema" negative="1" />
         </introspection-scope>
       </schema-mapping>
-    </data-source>
-    <data-source name="@localhost" uuid="cc642d4e-71ae-474c-af37-e7b577e2873d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
     </data-source>
   </component>
 </project>
