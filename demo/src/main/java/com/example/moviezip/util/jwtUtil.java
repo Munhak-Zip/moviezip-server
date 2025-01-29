@@ -9,12 +9,14 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Component
@@ -52,14 +54,9 @@ public class jwtUtil {
         return claims.get("userId", Long.class); // userId 추출 (Long 타입)
     }
 
-    //JWT에서 roles 추출
-//    public String extractRoles(String token){
-//        Claims claims = extractAllClaims(token);  //JWT에서 모든 claims가져오기
-//        return claims.get("roles", String.class); //roles 추출(String 타입)
-//    }
     public List<String> extractRoles(String token) {
         Claims claims = extractAllClaims(token);  // JWT에서 모든 claims 가져오기
-        return (List<String>) claims.get("roles");  // roles 추출 (List<String>)
+        return (List<String>) claims.get("roles");  // roles는 이제 List<String> 형태로 저장됨
     }
 
     private Boolean isTokenExpired(String token) {
@@ -71,9 +68,14 @@ public class jwtUtil {
     public String generateToken(UserDetails userDetails) {
         CustomUserDetails customUser = (CustomUserDetails) userDetails;
         Map<String, Object> claims = new HashMap<>();
+
+        List<String> roles = customUser.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)  // "ROLE_XXX" 형태의 문자열을 추출
+                .collect(Collectors.toList());
+
         claims.put("userId", customUser.getUser());
 
-        claims.put("roles", customUser.getAuthorities());
+        claims.put("roles", roles);
         return createToken(claims, userDetails.getUsername());
     }
 
