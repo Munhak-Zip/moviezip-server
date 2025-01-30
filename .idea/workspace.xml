@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[issue] 권한 추출 이슈 해결">
+    <list default="true" id="6a7d57ef-2873-46e8-8ed0-390a1bfd60d1" name="Changes" comment="[feat] 필요없는 주석 제거">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/filters/JwtRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/moviezip/util/jwtUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,7 @@
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/4th_grade/1st_semester/SoftwareContest/MovieZip_BE/demo/src/test/java",
-    "last_opened_file_path": "D:/4th_grade/Like_Lion_2/GanziThon/13_GANZI_BE",
+    "last_opened_file_path": "D:/4th_grade/1st_semester/SoftwareContest/front/MovieZip_FE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -307,23 +309,8 @@
       <workItem from="1737113395778" duration="729000" />
       <workItem from="1737166373162" duration="7743000" />
       <workItem from="1737174189775" duration="21971000" />
-      <workItem from="1737535351078" duration="33227000" />
-    </task>
-    <task id="LOCAL-00096" summary="[feat] 마이페이지 비번 확인">
-      <option name="closed" value="true" />
-      <created>1726128403752</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1726128403752</updated>
-    </task>
-    <task id="LOCAL-00097" summary="[feat] merge">
-      <option name="closed" value="true" />
-      <created>1727353772940</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1727353772940</updated>
+      <workItem from="1737535351078" duration="33986000" />
+      <workItem from="1738203416007" duration="6018000" />
     </task>
     <task id="LOCAL-00098" summary="resolve conflict">
       <option name="closed" value="true" />
@@ -701,7 +688,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738146099877</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="[feat] 필요없는 주석 제거">
+      <option name="closed" value="true" />
+      <created>1738146918422</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1738146918422</updated>
+    </task>
+    <task id="LOCAL-00146" summary="[feat] 필요없는 주석 제거">
+      <option name="closed" value="true" />
+      <created>1738146930235</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1738146930235</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -719,7 +722,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: add Role Enum #9" />
     <MESSAGE value="feat: add AdminController #9" />
     <MESSAGE value="[feat] dataSources" />
     <MESSAGE value="[feat] myBatisUserDao 추가" />
@@ -744,7 +746,8 @@
     <MESSAGE value="refact: [feat] 그 외" />
     <MESSAGE value="refact: [feat] accessToken 재발급 기능 완료" />
     <MESSAGE value="[issue] 권한 추출 이슈 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="[issue] 권한 추출 이슈 해결" />
+    <MESSAGE value="[feat] 필요없는 주석 제거" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] 필요없는 주석 제거" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
