@@ -3,7 +3,6 @@ package com.example.moviezip.filters;
 import com.example.moviezip.service.CustomUserDetailsService;
 import com.example.moviezip.util.jwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,23 +38,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             username = jwtutil.extractUsername(jwt);
         }
 
-        // 쿠키에서 refreshToken 추출
-        if (jwt == null) {
-            Cookie[] cookies = request.getCookies();
-            if (cookies != null) {
-                for (Cookie cookie : cookies) {
-                    if ("refreshToken".equals(cookie.getName())) {
-                        jwt = cookie.getValue();
-                        username = jwtutil.extractUsername(jwt);  // refreshToken의 사용자 이름도 추출
-                        break;
-                    }
-                }
-            }
-        }
-
         // 토큰이 존재하고, Authentication 객체가 없다면 SecurityContext 설정
         UserDetails userDetails = null;
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+        if (jwt!= null && username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             userDetails = this.userDetailsService.loadUserByUsername(username);
 
             // validateToken 으로 토큰 유효성 검사 후 인증 정보 설정
