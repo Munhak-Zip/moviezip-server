@@ -14,6 +14,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -35,7 +36,7 @@ public class RefreshTokenService {
         Long userId = customUserDetails.getUser();
         // UserDetails에서 username을 받아서 refresh 토큰을 생성
         String refreshToken = jwtTokenUtil.generateRefreshToken(userDetails);
-        LocalDateTime expiryDate = LocalDateTime.now().plusSeconds(expirationTimeInSeconds);
+        LocalDateTime expiryDate = LocalDateTime.now().plus(Duration.ofMillis(REFRESH_TOKEN_EXPIRATION));
         log.info("만료기간:" + expiryDate);
 
         // 기존 refreshToken이 있는지 확인
@@ -57,7 +58,7 @@ public class RefreshTokenService {
 
         Cookie cookie = new Cookie("refreshToken", tokenToReturn.getToken());
         cookie.setHttpOnly(true);    // JavaScript에서 접근 불가
-        cookie.setSecure(false);      // HTTPS 환경에서만 전송되도록 설정 (필요한 경우)
+        cookie.setSecure(true);      // HTTPS 환경에서만 전송되도록 설정 (필요한 경우)
         cookie.setPath("/");         // 모든 경로에서 사용 가능하도록 설정
         cookie.setMaxAge((int) REFRESH_TOKEN_EXPIRATION);  // 유효 기간 설정
         response.addCookie(cookie);
