@@ -93,39 +93,37 @@ public class jwtUtil {
                 .compact();
     }
 
+    //accessToken 재발급
     public String refreshAccessToken(String refreshToken) {
 
-        if (!validateRefreshToken(refreshToken)) {
-            throw new CustomException(ExceptionStatus.INVALID_TOKEN);
-        }
-        Claims claims = extractAllClaims(refreshToken);
-
-        if (claims.getIssuedAt().after(new Date())) {
-            throw new CustomException(ExceptionStatus.PREMATURE_TOKEN);
-        }
-
-        Date expireAt = claims.getExpiration();
-
-        if (expireAt.before(new Date())) {
-            throw new CustomException(ExceptionStatus.EXPIRED_TOKEN);
-        }
+        validateRefreshToken(refreshToken);
 
         String username = extractUsername(refreshToken);
-
         UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
         return generateToken(userDetails);
 
     }
 
-    public boolean validateRefreshToken(String refreshToken) {
+    //refreshToken 유효성 검증
+    public void validateRefreshToken(String refreshToken) {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(SECRET_KEY)
                     .build()
                     .parseClaimsJws(refreshToken);
-            return true;
+            Claims claims = extractAllClaims(refreshToken);
+
+            if (claims.getIssuedAt().after(new Date())) {
+                throw new CustomException(ExceptionStatus.PREMATURE_TOKEN);
+            }
+
+            Date expireAt = claims.getExpiration();
+
+            if (expireAt.before(new Date())) {
+                throw new CustomException(ExceptionStatus.EXPIRED_TOKEN);
+            }
         } catch (JwtException | IllegalArgumentException e) {
-            return false;
+            throw new CustomException(ExceptionStatus.INVALID_TOKEN);
         }
     }
 
