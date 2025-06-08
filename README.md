@@ -28,11 +28,6 @@
 | <img src="https://github.com/user-attachments/assets/f8c1fb57-10ff-445b-8806-3fa2eaf79b89" alt="내가좋아한영화" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/bfe5b9ee-68f5-4470-9853-1b585896ac54" alt="리뷰리스트" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/7c1d32e1-5fd8-491b-b815-bf786b3101e4" alt="리뷰 수정" width="450" height="190"/>
 
 
-| 리뷰 수정 | 내가 작성한 리뷰   | 리뷰 리스트  |
-|:-:|:-:|:-:|
-| <img src="https://github.com/user-attachments/assets/7c1d32e1-5fd8-491b-b815-bf786b3101e4" alt="리뷰 수정" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/c6d07664-7263-4b9b-bbdd-5c9e3c2f85f8" alt="리뷰작성" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/bfe5b9ee-68f5-4470-9853-1b585896ac54" alt="리뷰리스트" width="450" height="190"/>
-
-
 | 영화관 선택 화면 | 영화 좌석 예매 화면   | 결제화면  |
 |:-:|:-:|:-:|
 | <img src="https://github.com/user-attachments/assets/4719f0dc-9441-4786-bfb5-d66e7d557d4b" alt="영화관선택화면" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/bf4d9a2a-0237-4500-8945-d6b472161f07" alt="영화좌석예매화면" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/fda9fa59-9c59-45aa-90bd-70d1e02b53eb" alt="결제화면" width="450" height="190"/>
