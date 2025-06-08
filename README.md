@@ -29,6 +29,8 @@
   <img src="https://github.com/user-attachments/assets/a3cc4810-ff4c-48a0-b5f1-60f983a3b757">
 </p>
 
+채팅 기능은 Mongo DB를 사용했지만, 가독성을 위해 ERD 형식으로 시각화하였습니다.<br/>
+Oracle 기반으로 기존 설계되었던 데이터베이스와의 직접적인 연동은 없습니다.
 
 <br>
 
@@ -64,19 +66,21 @@
 등 데이터베이스 성능 최적화의 원리를 직접 실험하며 배울 수 있었습니다.
 
 
+### 📦 주요 기술 스택
 
-## 🛠️ Tech Stack
-### Spring Boot
-- Groovy-Gradle
-- Packaging : jar
-- Java 17
-- Dependency
-  - Spring Web
-  - Oracle
-  - MyBatis
-  - Spring Security
-  - ALS
-  - Junit5
+| 분야                | 기술                                                        |
+|---------------------|-------------------------------------------------------------|
+| **Language**        | Java 17                                                     |
+| **Framework**       | Spring Boot 2.7.18                                          |
+| **ORM**             | MyBatis                                                |
+| **Database**        | OracleDB, MongoDB                                           |
+| **Security**        | Spring Security, JWT (JJWT 0.11.5)                          |
+| **WebSocket**       | Spring WebSocket                                            |
+| **Data Store**      | Redis                                                       |                 |
+| **ML/추천엔진**     | Apache Spark (spark-core, spark-mllib)                      |
+| **Validation**      | Hibernate Validator                                         |
+| **Test**            | JUnit, Spring Security Test                                 |
+| **Build Tool**      | Maven                                                       |
 
 <br>
 
