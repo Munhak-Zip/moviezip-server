@@ -41,52 +41,206 @@
 |:-:|:-:|:-:|
 | <img src="https://github.com/user-attachments/assets/ccebfa2e-184d-484f-b788-2515307da38f" alt="채팅방리스트" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/9e52b7b0-c7bb-4d9c-a060-97cbc7f86502" alt="채팅화면" width="450" height="190"/> | <img src="https://github.com/user-attachments/assets/699278da-856c-4ca9-a9c0-c932ec330c99" alt="로그아웃" width="450" height="190"/>
 
-
-
-
 ## 🧱 ERD
+
+### 📌1차 ERD
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5548e8b7-9ac7-49e0-a744-4455d42d995e">
+</p>
+
+### 📌2차 ERD - 리뷰 테이블 구조 개선 및 스크랩 기능 분리
+
+- 기존에는 유사한 구조의 리뷰 관련 테이블이 2개로 나뉘어 있었으나, 중복을 줄이고 유지 보수를 용이하게 하기 위해 하나의 테이블로 통합하였습니다.
+
+- 또한, 영화 스크랩과 리뷰 스크랩은 다른 도메인이므로 구분하여 관리할 수 있도록 별도의 테이블로 분리하였습니다.
+
+- MovieScrap: 사용자(User)와 영화(Movie) 간의 스크랩 관계 (User 1:N MovieScrap, Movie 1:N MovieScrap)
+
+- ReviewScrap: 사용자(User)와 리뷰(Review) 간의 스크랩 관계 (User 1:N ReviewScrap, Review 1:N ReviewScrap)
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/97673c66-7f88-499a-88e0-282cd15e0113">
+</p>
+
+
+
+### 🎟️ 3차 ERD  영화 예매, 문의 채팅 기능 설계 및 테이블 구조 개선
+
+#### 🎬 예매 기능 개선
+
+기존의 예매 테이블은 단순히 날짜 및 좌석 정보만 저장하고 있어, 실제 영화 예매 시스템의 흐름을 반영하기 어려웠습니다.
+이에 따라 일반적인 영화 예매 플로우를 기준으로 필요한 테이블들을 재정의하였습니다.
+
+#### 💬 1:1 고객센터 채팅 기능
+
+사용자와 관리자가 실시간으로 소통할 수 있는 1:1 채팅 기능을 구현하였습니다.
+MongoDB를 사용해 비관계형 데이터 구조로 채팅 데이터를 저장하고 있으며, 가독성을 위해 ERD 형식으로 시각화하였습니다.
+Oracle 기반으로 기존 설계되었던 데이터베이스와의 직접적인 연동은 없습니다.
+
+#### 🔐 인증 방식 개선 (Session → JWT)
+
+기존에는 Spring Security의 세션 기반 인증을 사용했으나, 다음과 같은 이유로 JWT 기반 인증 방식으로 전환하였습니다.
+
+JWT는 클라이언트 측에 토큰을 저장하고 요청 시 Authorization 헤더를 통해 인증이 이루어집니다.
+이를 통해 서버는 세션을 저장하지 않고도 인증 처리가 가능합니다.
+
+### 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a3cc4810-ff4c-48a0-b5f1-60f983a3b757">
 </p>
 
-채팅 기능은 Mongo DB를 사용했지만, 가독성을 위해 ERD 형식으로 시각화하였습니다.<br/>
-Oracle 기반으로 기존 설계되었던 데이터베이스와의 직접적인 연동은 없습니다.
-
 <br>
 
-### 검색 성능 개선 시도
+## 트러블 슈팅
 
-| 구분           | 인덱스 적용 전 | 인덱스 적용 후 |
-| -------------- | :-----------: | :-----------: |
-| 실행 시간      |    0.14초     |    0.09초     |
-| 실행 결과 이미지 | ![image (5)](https://github.com/user-attachments/assets/7119df66-3973-4420-9cab-fcbffd9fe28a)| ![image (6)](https://github.com/user-attachments/assets/ddce3e5e-6e98-406f-a1ba-9f3ef5b47ce8) |
+### ✅ 트러블슈팅 1 - @Transactional 누락으로 인한 DB 반영 실패
 
-검색 쿼리의 성능을 개선하고자 오라클 기본 인덱스를 적용해보았습니다.  
-약 8만 건의 데이터 중 80건을 검색하는 쿼리에서, 인덱스 적용 전 0.14초, 적용 후 0.09초로 약 36%의 속도 개선이 있었으나 실제 사용자 입장에서는 큰 체감이 어려운 수준이었습니다.
+#### ❗ 문제 상황
+
+엔티티의 필드를 수정했지만, DB에 반영되지 않는 현상 발생
+
+#### 🔍 원인 분석
+
+- JPA의 **변경 감지 기능은 트랜잭션 안에서만 작동**한다는 점을 간과
+- `@Transactional` 어노테이션이 누락되어 영속성 컨텍스트가 flush되지 않았음
+
+#### 🛠 해결 방법
+
+- 해당 서비스 메서드에 `@Transactional` 어노테이션 추가
+
+#### ✅ 결과
+
+- 엔티티의 필드 변경이 정상적으로 DB에 반영됨
+
+#### 🧠 인사이트
+
+- 변경 감지는 자동이지만, 트랜잭션 없이는 반영되지 않음
+- 서비스 계층에서 명확한 트랜잭션 범위 설정이 중요함
+
+---
+
+### ✅ 트러블슈팅 2 - NullPointerException 발생 (DAO 테스트 환경)
+
+#### ❗ 문제 상황
+
+DAO 테스트 클래스 실행 시, 주입받은 Mapper에서 `NullPointerException` 발생
+
+#### 🔍 원인 분석
+
+- `@Autowired` 어노테이션이 누락되어 **의존성 주입이 되지 않음**
+
+#### 🛠 해결 방법
+
+- `@Autowired` 명시적으로 선언하여 Mapper 주입
+
+#### ✅ 결과
+
+- 테스트 코드가 정상적으로 실행되며 Mapper 주입 성공
+
+#### 🧠 인사이트
+
+- 테스트 코드도 스프링 컨텍스트 내에서 실행되어야 의존성 주입이 가능
+- `@Autowired` 누락은 단순하지만 치명적인 실수
+
+---
+
+### ✅ 트러블슈팅 3 - antMatchers 에러 (Spring Security 5.7 이후 DSL 변경)
+
+#### ❗ 문제 상황
+
+```java
+http.authorizeRequests()
+    .antMatchers("/login").permitAll(); // 컴파일 에러
+
+```
+
+IDE에서 `Cannot resolve method 'antMatchers'` 에러 발생
+
+#### 🔍 원인 분석
+
+- Spring Security **5.7 이상부터 DSL 문법이 변경됨**
+- 기존 `authorizeRequests` / `antMatchers` → `authorizeHttpRequests` / `requestMatchers`로 변경됨
+
+#### 🛠 해결 방법
+
+```java
+http
+    .authorizeHttpRequests((requests) -> requests
+        .requestMatchers("/login", "/signup").permitAll()
+        .anyRequest().authenticated()
+    );
+
+```
+
+#### ✅ 결과
+
+- 빌드 및 실행 성공, 모든 요청 인증 설정 정상 작동
+
+#### 🧠 인사이트
+
+- Spring Security는 버전 업에 따라 DSL 구조가 크게 바뀌므로 **공식 문서 확인이 필수**
+- 람다 기반 DSL에 익숙해지는 것이 향후 유지보수에 유리
+
+---
+
+###  ✅ 트러블슈팅 4 - IntelliJ에서 `Cannot resolve class/package 'mysql'` 에러
+
+#### ❗ 문제 상황
+
+의존성을 추가했음에도 불구하고 import 에러 발생
+
+#### 🔍 원인 분석
+
+- IntelliJ의 캐시가 꼬여서 **Maven 의존성 인식을 못하는 상태**
+
+#### 🛠 해결 방법
+
+- `File > Invalidate Caches / Restart...` 실행 후 재시작
+
+#### ✅ 결과
+
+- 캐시 초기화 후, 의존성 정상 인식 및 import 성공
+
+#### 🧠 인사이트
+
+- 환경 문제는 코드가 아닌 도구 설정 이슈일 수 있음
+---
+
+###  ✅ 트러블슈팅 5 - `java.lang.ClassNotFoundException: oracle.jdbc.driver.OracleDriver`
+
+#### ❗ 문제 상황
+
+Oracle 드라이버 클래스를 찾을 수 없음
+
+#### 🔍 원인 분석
+
+- Oracle JDBC 드라이버에 대한 **의존성 누락**
+
+#### 🛠 해결 방법
+
+`pom.xml`에 다음 의존성 추가:
+
+```xml
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc8</artifactId>
+    <version>19.8.0.0</version>
+</dependency>
+
+```
+
+#### ✅ 결과
+
+- 빌드 성공 및 드라이버 정상 인식
+
+#### 🧠 인사이트
+
+- 외부 드라이버 의존성은 직접 명시해주지 않으면 자동 포함되지 않음
+- Maven 프로젝트는 **`Reload All`*을 수시로 확인
 
 
-### 적용 과정에서의 문제 인식 및 원인 분석
-
-#### 인덱스 적용과 옵티마이저 동작 분석
-
-인덱스를 적용했음에도 불구하고, 옵티마이저가 풀 테이블 스캔을 선택한 이유를 분석했습니다.
-
-검색 조건의 선택도(카디널리티)가 5% 이상으로 높아, 옵티마이저가 비용 기반 판단에 따라 인덱스 대신 풀스캔을 선택한 것을 확인했습니다.
-
-### 해결 시도 및 결과
-
-검색 조건을 조정하여 선택도를 0.1% 이하로 낮추자, 옵티마이저가 인덱스 스캔을 사용함을 확인할 수 있었습니다.
-
-이때 쿼리 실행 시간이 0.09초로 개선되는 것을 확인하며, 실제 데이터와 조건에 따라 인덱스 효율이 크게 달라질 수 있음을 체감했습니다.
-
-
-### 이번 경험을 통해  
-- 인덱스가 대용량 데이터나 특정 조건에서 더 큰 효과를 보인다는 점  
-- 옵티마이저가 선택도를 고려해 인덱스 사용 여부를 결정한다는 점  
-등 데이터베이스 성능 최적화의 원리를 직접 실험하며 배울 수 있었습니다.
-
-
-### 📦 주요 기술 스택
+## 📦 주요 기술 스택
 
 | 분야                | 기술                                                        |
 |---------------------|-------------------------------------------------------------|
