@@ -93,6 +93,16 @@ JWT는 클라이언트 측에 토큰을 저장하고 요청 시 Authorization �
 <br>
 
 
+
+### 4. 🔌 **포스팅**
+
+| 주제 | 담당자 | 관련 문서 |
+|------|--------|-------------|
+| 세션 기반 인증에서 JWT로 전환 회고 | 허민영 | [바로가기 🔗](https://dragonair148.tistory.com/entry/Spring-Security-JWT-%EC%84%B8%EC%85%98-%EA%B8%B0%EB%B0%98-%EC%9D%B8%EC%A6%9D%EC%97%90%EC%84%9C-JWT%EB%A1%9C-%EC%A0%84%ED%99%98-%ED%9A%8C%EA%B3%A0) |
+| Spring Security + JWT 사용자 인증(1) - 로그인 & 토큰 발급 | 허민영 | [바로가기 🔗](https://dragonair148.tistory.com/entry/Spring-Spring-Security-JWT-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%9D%B8%EC%A6%9D1-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%86%A0%ED%81%B0-%EB%B0%9C%EA%B8%89) |
+| Spring Security + JWT 사용자 인증(2) - Spring Security 설정 및 필터 적용 | 허민영 | [바로가기 🔗](https://dragonair148.tistory.com/entry/Spring-Spring-Security-JWT-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%9D%B8%EC%A6%9D2-Spring-Security-%EC%84%A4%EC%A0%95-%EB%B0%8F-%ED%95%84%ED%84%B0-%EC%A0%81%EC%9A%A9) |
+| Spring Security + JWT 사용자 인증(3) - Refresh Token을 활용한 인증 갱신 | 허민영 | [바로가기 🔗](https://dragonair148.tistory.com/entry/Spring-Spring-Security-JWT-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%9D%B8%EC%A6%9D3-Refresh-Token%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%B8%EC%A6%9D-%EA%B0%B1%EC%8B%A0) |
+
 ## 📦 주요 기술 스택
 
 | 분야                | 기술                                                        |
