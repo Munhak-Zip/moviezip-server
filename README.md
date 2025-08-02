@@ -92,7 +92,41 @@ JWT는 클라이언트 측에 토큰을 저장하고 요청 시 Authorization �
 
 <br>
 
+#### 🧩 Problem: 실시간 추천 API가 너무 느리다
 
+- 기존 추천 API /main/recommend는 Spark ALS 기반 연산을 요청마다 수행함
+- 추천 알고리즘 실행 시간: 약 15초 이상
+- 사용자가 매번 15초 이상 기다려야 하는 심각한 UX 문제 발생
+<img width="548" height="137" alt="image" src="https://github.com/user-attachments/assets/5e0ed2d3-9c2f-40f2-9c6f-8ae719ccd2ca" />
+
+#### ⚡️ Solution: Redis 캐시 도입으로 속도향상된 추천 결과 제공
+
+| 항목       | 캐시 미적용           | Redis 캐시 적용    |
+| -------- | ---------------- | -------------- |
+| 평균 응답 시간 | 14,876ms (\~15초) | 1ms            |
+| 속도 향상    | -                | 🔥 **15,000배** |
+
+매번 무거운 Spark 연산 대신, 한 번 계산한 결과를 Redis에 저장하고 다음부터는 즉시 반환
+
+| 캐시 적용 전       | 캐시 적용 후           | 
+| -------- | ---------------- | 
+|<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/b1aa5298-95c9-44d1-86aa-9ef0f527ce39" /> |<img width="400" height="300" alt="image" src="https://github.com/user-attachments/assets/a71434f3-0cf9-4ebf-affd-c9e1058756c4" /> |
+
+
+#### 🧠 Spark + JDK 호환 문제 해결
+
+```
+java.lang.IllegalAccessError: class org.apache.spark.storage.StorageUtils$ cannot access class sun.nio.ch.DirectBuffer
+```
+#### 원인
+- JDK 9+ 부터 내부 패키지 접근 제한 → Spark 2.x와 충돌
+
+#### 해결 방법
+
+```
+--add-exports java.base/sun.nio.ch=ALL-UNNAMED
+```
+Spark 내부 클래스에서 DirectBuffer 접근 허용
 
 ### 4. 🔌 **포스팅**
 
